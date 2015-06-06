@@ -7,3 +7,7 @@ else
 fi
 
 (cd ~/.fzf && ./install)
+
+# only ignore .git files; show other dotfiles
+
+sed -i "s@\-path '\*/\\\.\*'@-path '*/\.git'@g" ~/.fzf/shell/key-bindings.bash
