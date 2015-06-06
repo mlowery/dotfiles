@@ -1,0 +1,6 @@
+_dot_prepend_to_path /opt/local/libexec/gnubin
+_dot_prepend_to_path /opt/local/bin
+
+if [[ -f /opt/local/etc/profile.d/bash_completion.sh ]]; then
+    source /opt/local/etc/profile.d/bash_completion.sh
+fi

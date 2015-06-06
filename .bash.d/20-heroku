@@ -1,0 +1,2 @@
+# Heroku Toolbelt
+_dot_prepend_to_path /usr/local/heroku/bin

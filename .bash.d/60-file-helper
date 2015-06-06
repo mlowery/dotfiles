@@ -1,0 +1,50 @@
+function bak() {
+  cp -p -r $1 $1~`date +%Y%m%d_%H%M%S`~
+}
+
+function trunc() {
+  bak $1
+  truncate -s 0 $1
+}
+
+function rmline() {
+  local file="$1"
+  local num=$2
+  sed --in-place="`date +~%F_%H-%M-%S`" ${num}d "$file"
+}
+
+# Create a new directory and enter it
+function mkcd() {
+    mkdir -p "$@" && cd "$@"
+}
+
+extract () {
+    if [ $# -ne 1 ]
+    then
+        echo "Error: No file specified."
+        return 1
+    fi
+    if [ -f $1 ] ; then
+            case $1 in
+                    *.tar.bz2) tar xvjf $1   ;;
+                    *.tar.gz)  tar xvzf $1   ;;
+                    *.bz2)     bunzip2 $1    ;;
+                    *.rar)     unrar x $1    ;;
+                    *.gz)      gunzip $1     ;;
+                    *.tar)     tar xvf $1    ;;
+                    *.tbz2)    tar xvjf $1   ;;
+                    *.tgz)     tar xvzf $1   ;;
+                    *.zip)     unzip $1      ;;
+                    *.Z)       uncompress $1 ;;
+                    *.7z)      7z x $1       ;;
+                    *)         echo "'$1' cannot be extracted via extract"; return 1 ;;
+            esac
+    else
+            echo "'$1' is not a valid file"
+            return 1
+    fi
+}
+
+alias ax="chmod a+x"
+
+alias dsclean='find . -type f -name .DS_Store -print0 | xargs -0 rm'

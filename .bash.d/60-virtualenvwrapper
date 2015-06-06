@@ -1,0 +1,5 @@
+if [[ -f /usr/local/bin/virtualenvwrapper.sh ]]; then
+    export WORKON_HOME=~/.virtualenvs
+    export PROJECT_HOME=~/src
+    source /usr/local/bin/virtualenvwrapper.sh
+fi

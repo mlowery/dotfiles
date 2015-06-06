@@ -1,0 +1,39 @@
+_dot_get_os() {
+    python -mplatform
+}
+
+_dot_is_osx() {
+    _dot_get_os | grep --quiet --ignore-case darwin
+}
+
+_dot_is_ubuntu() {
+    _dot_get_os | grep --quiet --ignore-case ubuntu
+}
+
+_dot_is_redhat() {
+    _dot_get_os | grep --quiet --ignore-case redhat
+}
+
+_dot_is_centos() {
+    _dot_get_os | grep --quiet --ignore-case centos
+}
+
+_dot_is_linux() {
+    _dot_get_os | grep --quiet --ignore-case linux
+}
+
+_dot_on_path() {
+    local cmd="${1?cmd is required}"
+    which $cmd &> /dev/null
+}
+
+_dot_prepend_to_path() {
+    local dir="${1?dir is required}"
+    if [[ -d $dir ]]; then
+        export PATH="$dir:$PATH"
+    fi
+}
+
+_dot_is_login_shell() {
+    shopt -q login_shell
+}

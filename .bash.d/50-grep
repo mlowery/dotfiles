@@ -1,0 +1,4 @@
+# Always enable colored `grep` output
+# Don't bother with devices or binary files
+alias grep='grep --color=auto --binary-files=without-match --devices=skip'
+

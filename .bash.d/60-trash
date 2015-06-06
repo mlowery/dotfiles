@@ -1,0 +1,30 @@
+if ! _dot_on_path trash; then
+    function trash() {
+      if [[ $OSTYPE =~ ^darwin ]]; then
+        local trash_dir=~/.Trash/cli
+      else
+        local trash_dir=~/_Trash
+      fi
+      if [ -z "$*" ] ; then
+        echo "Usage: trash filename"
+      else
+        DATE=$( date +%Y_%m_%d__%H_%M_%S )
+        local this_trash_root=${trash_dir}/${DATE}
+        [ -d ${this_trash_root} ] || mkdir -p ${this_trash_root}
+        for FILE in "$@" ; do
+          #mv "${FILE}" ~/_Trash/${DATE}
+          # using cp with rm preserves timestamps, etc
+          # FILE may contain a directory
+
+          case "$FILE" in
+              /*) absolute="$FILE";;
+              *) absolute="$PWD/$FILE";;
+          esac
+
+          mkdir -p "${this_trash_root}/$(dirname "${absolute}")"
+          cp -p -r "${FILE}" "${this_trash_root}/${absolute}"
+          \rm -rf "${FILE}"
+        done
+      fi
+    }
+fi

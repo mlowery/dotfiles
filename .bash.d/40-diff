@@ -1,0 +1,6 @@
+# Use Git’s colored diff when available
+if _dot_on_path git; then
+    function diff() {
+        git diff --no-index --color-words "$@"
+    }
+fi

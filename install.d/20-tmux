@@ -1,0 +1,11 @@
+if _dot_is_ubuntu && ! _dot_on_path tmux; then
+    sudo apt-get update
+    tmp_file=$(mktemp)
+    # 1.8+ has proper mouse scrolling in both directions
+    wget -O $tmp_file https://mirrors.kernel.org/ubuntu/pool/main/t/tmux/tmux_2.0-3_amd64.deb
+    sudo apt-get install libutempter0
+    sudo dpkg -i $tmp_file
+    rm -f $tmp_file
+fi
+
+

@@ -1,0 +1,13 @@
+utcnow() {
+    local timezone=${1:-"UTC"}
+    python -c "
+import sys
+from datetime import datetime
+from pytz import timezone
+print(datetime.now(timezone(sys.stdin.readline().strip())).replace(microsecond=0).isoformat())
+" <<< "$timezone"
+}
+
+# date for use in filenames
+alias safedate='date +%Y_%m_%d__%H_%M_%S'
+

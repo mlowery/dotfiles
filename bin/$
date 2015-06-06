@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Stolen from https://github.com/cowboy/dotfiles
+
+# Ever pasted "$ somecommand" into the terminal and gotten this error?
+# -bash: $: command not found
+
+# Begone, silly errors! Lazy copy + paste forever!! ETCETERA!!!!
+
+echo 'Quit pasting in commands from the internet, you lazy bum.'
+"$@"

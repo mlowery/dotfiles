@@ -1,0 +1,12 @@
+if _dot_on_path reboot; then
+  alias reboot='echo "reboot is disabled. Use \reboot instead."'
+fi
+if _dot_on_path halt; then
+  alias halt='echo "halt is disabled. Use \halt instead."'
+fi
+if _dot_on_path poweroff; then
+  alias poweroff='echo "poweroff is disabled. Use \poweroff instead."'
+fi
+
+alias rm='rm -iv'
+
