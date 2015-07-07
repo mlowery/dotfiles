@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-if [[ -d ~/.fzf ]]; then
-    (cd ~/.fzf && git pull)
-else
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-fi
-
-(cd ~/.fzf && ./install)
-
-# only ignore .git files; show other dotfiles
-
-sed -i "s@\-path '\*/\\\.\*'@-path '*/\.git'@g" ~/.fzf/shell/key-bindings.bash
+#if [[ -d ~/.fzf ]]; then
+#    (cd ~/.fzf && git pull)
+#else
+#    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+#fi
+#
+#(cd ~/.fzf && ./install)
+#
+## only ignore .git files; show other dotfiles
+#
+#sed -i "s@\-path '\*/\\\.\*'@-path '*/\.git'@g" ~/.fzf/shell/key-bindings.bash
