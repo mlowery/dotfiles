@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Moves a tag locally and remotely.
+
+usage="usage: git-mv-tag TAG REMOTE"
+
+go() {
+    local tag="${1?$usage}"
+    local remote="${2?$usage}"
+    git push $remote :refs/tags/$tag && git tag -f $tag && git push $remote $tag
+}
+
+go $1 $2
