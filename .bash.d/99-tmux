@@ -5,6 +5,9 @@
 # and tmux is installed
 # attach to existing session
 # or create new one
-if _dot_is_login_shell && [[ -z $TMUX && -n $SSH_CONNECTION ]] && _dot_on_path tmux; then
-    tmux has-session && tmux attach || tmux
-fi
+
+
+# while the following works, it loses my PS1 edits; haven't looked into why
+#if _dot_is_login_shell && [[ -z $TMUX && -n $SSH_CONNECTION ]] && _dot_on_path tmux; then
+#    tmux has-session && tmux attach || tmux
+#fi
