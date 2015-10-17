@@ -51,6 +51,7 @@ Bundle 'elzr/vim-json'
 Bundle 'tpope/vim-markdown'
 Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'rking/ag.vim'
 
 
 filetype plugin indent on   " Automatically detect file types.
@@ -436,5 +437,5 @@ set nospell
 
 
 " shortcut for file search for word under cursor
-nmap <Leader><Leader>s :Ack!<CR>
+nmap <Leader><Leader>s :Ag!<CR>
 
