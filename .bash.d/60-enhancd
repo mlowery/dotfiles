@@ -1,0 +1,1 @@
+[[ -f ~/.enhancd/enhancd.sh ]] && source ~/.enhancd/enhancd.sh
