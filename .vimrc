@@ -52,6 +52,7 @@ Bundle 'tpope/vim-markdown'
 Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'rking/ag.vim'
+Bundle 'fatih/vim-go'
 
 
 filetype plugin indent on   " Automatically detect file types.
