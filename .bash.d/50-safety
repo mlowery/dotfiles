@@ -8,5 +8,5 @@ if _dot_on_path poweroff; then
   alias poweroff='echo "poweroff is disabled. Use \poweroff instead."'
 fi
 
-alias rm='rm -iv'
+#alias rm='rm -iv'
 
