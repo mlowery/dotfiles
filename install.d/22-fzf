@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-if [[ -d ~/.fzf ]]; then
-    (cd ~/.fzf && git pull)
-else
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-fi
-
-(cd ~/.fzf && ./install)
+#if [[ -d ~/.fzf ]]; then
+#    (cd ~/.fzf && git pull)
+#else
+#    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+#fi
+#
+#(cd ~/.fzf && yes | ./install)
 #
 ## only ignore .git files; show other dotfiles
 #
