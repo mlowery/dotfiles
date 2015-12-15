@@ -1,0 +1,16 @@
+if _dot_is_osx && _dot_on_path docker-machine && [[ $(docker-machine status default) == Running ]]; then
+    eval "$(docker-machine env default)"
+fi
+
+if _dot_is_osx && _dot_on_path docker; then
+    # cqlsh $ip --cqlversion $cqlver
+    alias cqlsh='docker run -it cassandra cqlsh'
+    # mysql -h $ip -u $user -p
+    alias mysql='docker run -it mysql mysql'
+    # redis-cli -h $ip
+    alias redis-cli='docker run -it redis redis-cli'
+    # mongo $ip
+    alias mongo='docker run -it mongo mongo'
+    # couchbase-cli $subcmd -c $ip -u $user -p $pass
+    alias couchbase-cli='docker run -it couchbase couchbase-cli'
+fi
