@@ -18,6 +18,8 @@ if _dot_is_osx; then
         sudo port install wget
         sudo port install gnutar
         sudo port install tree
+
+        # TODO script docker* installation via MacPorts
     else
         echo "WARNING: MacPorts not installed"
     fi
