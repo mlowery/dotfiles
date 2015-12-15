@@ -1,0 +1,5 @@
+if _dot_is_osx; then
+    for f in ~/Library/LaunchAgents/com.matlowery.*.plist; do
+        launchctl load "$f"
+    done
+fi
