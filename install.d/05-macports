@@ -19,6 +19,9 @@ if _dot_is_osx; then
         sudo port install gnutar
         sudo port install tree
 
+        # godep
+        sudo port install mercurial
+
         # TODO script docker* installation via MacPorts
     else
         echo "WARNING: MacPorts not installed"
