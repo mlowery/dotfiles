@@ -18,6 +18,7 @@ if _dot_is_osx; then
         sudo port install wget
         sudo port install gnutar
         sudo port install tree
+        sudo port install watch
 
         # godep
         sudo port install mercurial
