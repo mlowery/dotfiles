@@ -1,17 +1,3 @@
 if [[ -d $HOME/go-tools ]]; then
     _dot_prepend_to_path $HOME/go-tools/bin
 fi
-
-export _GOPATHBASE=~/src
-
-function mkgopath() {
-    local ignored="${_GOPATHBASE?_GOPATHBASE is required}"
-    local pkg="${1?pkg is required}"
-    local repo="${2?repo is required}"
-    local gopath=$_GOPATHBASE/$(basename $pkg)
-    local dir=$gopath/src/$pkg
-    mkdir -p $dir
-    git clone $repo $dir
-    echo "Use GOPATH=$gopath"
-}
-
