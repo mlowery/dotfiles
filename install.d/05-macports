@@ -23,7 +23,9 @@ if _dot_is_osx; then
         # godep
         sudo port install mercurial
 
-        # TODO script docker* installation via MacPorts
+        sudo port install docker
+        sudo port install docker-machine
+        sudo port install docker-compose
     else
         echo "WARNING: MacPorts not installed"
     fi
