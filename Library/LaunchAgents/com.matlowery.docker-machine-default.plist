@@ -8,13 +8,14 @@
         <key>EnvironmentVariables</key>
         <dict>
             <key>PATH</key>
+            <!-- PATH must include where VBoxManage lives -->
             <string>/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin</string>
         </dict>
         <key>Label</key>
         <string>com.matlowery.docker-machine-default</string>
         <key>ProgramArguments</key>
         <array>
-            <string>/usr/local/bin/docker-machine</string>
+            <string>/opt/local/bin/docker-machine</string>
             <string>start</string>
             <string>default</string>
         </array>
