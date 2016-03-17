@@ -4,13 +4,13 @@ fi
 
 if _dot_is_osx && _dot_on_path docker; then
     # cqlsh $ip --cqlversion $cqlver
-    alias cqlsh='docker run -it cassandra cqlsh'
+    alias cqlsh='docker run --net=host --rm -it cassandra cqlsh'
     # mysql -h $ip -u $user -p
-    alias mysql='docker run -it mysql mysql'
+    alias mysql='docker run --net=host --rm -it mysql mysql'
     # redis-cli -h $ip
-    alias redis-cli='docker run -it redis redis-cli'
+    alias redis-cli='docker run --net=host --rm -it redis redis-cli'
     # mongo $ip
-    alias mongo='docker run -it mongo mongo'
+    alias mongo='docker run --net=host --rm -it mongo mongo'
     # couchbase-cli $subcmd -c $ip -u $user -p $pass
-    alias couchbase-cli='docker run -it couchbase couchbase-cli'
+    alias couchbase-cli='docker run --net=host --rm -it couchbase couchbase-cli'
 fi
