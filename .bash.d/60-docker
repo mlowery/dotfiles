@@ -13,4 +13,6 @@ if _dot_is_osx && _dot_on_path docker; then
     alias mongo='docker run --net=host --rm -it mongo mongo'
     # couchbase-cli $subcmd -c $ip -u $user -p $pass
     alias couchbase-cli='docker run --net=host --rm -it couchbase couchbase-cli'
+
+    alias dmrestart='docker-machine restart default && eval $(docker-machine env default)'
 fi
