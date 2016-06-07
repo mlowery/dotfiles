@@ -1,5 +1,8 @@
-if [[ -d $HOME/go-tools ]]; then
+if [[ -d $HOME/go-tools/bin ]]; then
     _dot_prepend_to_path $HOME/go-tools/bin
 fi
 
 export GOPATH=~/go-work
+
+# vim-go
+export GOBIN=~/go-tools/bin

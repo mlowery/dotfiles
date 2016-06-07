@@ -11,7 +11,7 @@ A user can be bootstrapped with this script (which I keep as a snippet in
 [ClipMenu](http://www.clipmenu.com/) for easy pasting):
 
 ```bash
-__f=$(mktemp); wget -q -O $__f https://gist.github.com/mlowery/gist123/raw; source $__f; /bin/rm $__f
+__f=$(mktemp); wget -q -O $__f https://gist.github.com/mlowery/gist123/raw; $__f; /bin/rm $__f
 ```
 
 Where the gist contains something like this:
@@ -33,6 +33,8 @@ else
 fi
  
 (cd "$install_dir" && source install.sh)
+
+source ~/.bashrc
 ```
 
 ## Credits

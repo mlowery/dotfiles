@@ -2,10 +2,10 @@ if _dot_is_osx && _dot_on_path port; then
     sudo port install the_silver_searcher
 fi
 
-if _dot_is_ubuntu; then
+if _dot_net_ok && _dot_is_sudoer && _dot_is_ubuntu; then
     sudo apt-get install silversearcher-ag
 fi
 
-if _dot_is_redhat || _dot_is_centos; then
+if _dot_net_ok && _dot_is_sudoer && _dot_is_redhat || _dot_is_centos; then
     sudo yum install the_silver_searcher
 fi

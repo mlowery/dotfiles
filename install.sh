@@ -2,14 +2,21 @@
 
 cd "$(dirname "${BASH_SOURCE}")"
 
+_DOT_NET_OK=true
+if [[ $1 == --no-net ]]; then
+    _DOT_NET_OK=false
+fi
+
 source .dotfiles-lib
 
-if ! _dot_on_path git; then
+if _dot_net_ok && ! _dot_on_path git; then
     echo "ERROR: git is required"
     exit 1
 fi
 
-git pull origin master
+if _dot_net_ok; then
+    git pull origin master
+fi
 
 function _dot_install() {
 
@@ -29,7 +36,6 @@ function _dot_install() {
     unset install_dir
     unset file
 
-    source ~/.bashrc
 }
 
 _dot_install

@@ -37,3 +37,28 @@ _dot_prepend_to_path() {
 _dot_is_login_shell() {
     shopt -q login_shell
 }
+
+# check if user can sudo without a password
+# http://serverfault.com/a/366934
+_dot_is_sudoer() {
+    sudo -n true &> /dev/null
+}
+
+_dot_net_ok() {
+    if [[ $_DOT_NET_OK == true ]]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+_dot_clone_or_pull() {
+    local repo="${1?repo is required}"
+    local dir="${2?dir is required}"
+
+    if [[ ! -d $dir/.git ]]; then
+        git clone $$repo $dir
+    else
+        (cd $dir && git pull)
+    fi
+}

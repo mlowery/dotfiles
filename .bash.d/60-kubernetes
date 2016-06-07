@@ -1,0 +1,15 @@
+
+kobj='po rc svc job no ns pv pvc rs dep ep'
+
+for k in $kobj; do
+	alias kg$k="kubectl get $k"
+	alias kd$k="kubectl describe $k"
+	alias kdel$k="kubectl delete $k"
+done
+
+alias klog='kubectl logs'
+alias kexec='kubectl exec'
+alias kconfv='kubectl config view --minify'
+alias kconfu='kubectl config use-context'
+alias k='kubectl'
+alias kc='kubectl create -f'

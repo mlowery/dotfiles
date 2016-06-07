@@ -1,4 +1,4 @@
-if _dot_is_ubuntu && _dot_get_os | grep --quiet --ignore-case trusty && ! tmux -V | grep --quiet 2.1; then
+if _dot_net_ok && _dot_is_sudoer && _dot_is_ubuntu && _dot_get_os | grep --quiet --ignore-case trusty && ! tmux -V | grep --quiet "tmux 2."; then
     sudo apt-get -y update
     sudo apt-get -y install libutempter0
     tmp_file=$(mktemp)
@@ -9,8 +9,10 @@ if _dot_is_ubuntu && _dot_get_os | grep --quiet --ignore-case trusty && ! tmux -
     rm -f $tmp_file
 fi
 
-if [[ -d ~/.tmux/plugins/tpm ]]; then
-    (cd ~/.tmux/plugins/tpm && git pull)
-else
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if _dot_net_ok && tmux -V | grep --quiet "tmux 2."; then
+    if [[ -d ~/.tmux/plugins/tpm ]]; then
+        (cd ~/.tmux/plugins/tpm && git pull)
+    else
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    fi
 fi
