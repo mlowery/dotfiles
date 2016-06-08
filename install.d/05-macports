@@ -22,6 +22,7 @@ if _dot_is_osx; then
         sudo port install tmux
         sudo port install vim +lua
         sudo port install ctags
+        sudo port install hub
 
         # godep
         sudo port install mercurial
