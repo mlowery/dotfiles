@@ -1,0 +1,10 @@
+if _dot_is_osx; then
+
+    if [[ -d /Library/Java/JavaVirtualMachines/latest/Contents/Home ]]; then
+        export JAVA_HOME=/Library/Java/JavaVirtualMachines/latest/Contents/Home
+    fi
+
+    if [[ -d /usr/local/apache-maven/bin ]]; then
+        _dot_prepend_to_path /usr/local/apache-maven/bin
+    fi
+fi

@@ -1,2 +1,4 @@
-# Heroku Toolbelt
-_dot_prepend_to_path /usr/local/heroku/bin
+if [[ -d /usr/local/heroku/bin ]]; then
+    # Heroku Toolbelt
+    _dot_prepend_to_path /usr/local/heroku/bin
+fi
