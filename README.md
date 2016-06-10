@@ -11,30 +11,29 @@ A user can be bootstrapped with this script (which I keep as a snippet in
 [ClipMenu](http://www.clipmenu.com/) for easy pasting):
 
 ```bash
-__f=$(mktemp); wget -q -O $__f https://gist.github.com/mlowery/gist123/raw; $__f; /bin/rm $__f
+bash <(curl -sL https://gist.github.com/mlowery/gist123/raw)
 ```
 
 Where the gist contains something like this:
 
 ```bash
-#!/bin/sh
- 
 if ! which git &> null; then
-    echo "Installing git..."
-    sudo apt-get update && sudo apt-get install -y git-core
+  echo "Installing git..."
+  # this will give you the latest git
+  sudo add-apt-repository -y ppa:git-core/ppa
+  sudo apt-get -y update
+  sudo apt-get -y install git
 fi
- 
-install_dir=~/dotfiles
- 
-if [[ ! -d $install_dir ]]; then
-    git clone https://github.com/mlowery/dotfiles.git "$install_dir"
-else
-    (cd "$install_dir" && git pull --ff-only)
-fi
- 
-(cd "$install_dir" && source install.sh)
 
-source ~/.bashrc
+install_dir=~/dotfiles
+
+if [[ ! -d $install_dir ]]; then
+  git clone https://github.com/mlowery/dotfiles.git "$install_dir"
+else
+  (cd "$install_dir" && git pull --ff-only)
+fi
+
+(cd "$install_dir" && ./install.sh)
 ```
 
 ## Credits
