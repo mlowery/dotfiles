@@ -57,7 +57,7 @@ _dot_clone_or_pull() {
     local dir="${2?dir is required}"
 
     if [[ ! -d $dir/.git ]]; then
-        git clone $$repo $dir
+        git clone $repo $dir
     else
         (cd $dir && git pull)
     fi
