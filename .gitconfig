@@ -84,6 +84,18 @@
 
 [commit]
   template = ~/.gitmessage
+  verbose = true
+
+[pager]
+  log = diff-highlight | less
+  show = diff-highlight | less
+  diff = diff-highlight | less
+
+[interactive]
+  diffFilter = diff-highlight
+
+[diff]
+  compactionHeuristic = true
 
 [include]
   path = ~/.gitconfig_extra
