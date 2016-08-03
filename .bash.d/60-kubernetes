@@ -1,5 +1,5 @@
 
-kobj='po rc svc job no ns pv pvc rs dep ep'
+kobj='po rc svc job no ns pv pvc rs dep ep secrets configmaps'
 
 for k in $kobj; do
 	alias kg$k="kubectl get $k"
