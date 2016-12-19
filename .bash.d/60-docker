@@ -1,7 +1,3 @@
-if _dot_is_osx && _dot_on_path docker-machine && [[ $(docker-machine status default) == Running ]]; then
-    eval "$(docker-machine env default)"
-fi
-
 if _dot_is_osx && _dot_on_path docker; then
     # cqlsh $ip --cqlversion $cqlver
     alias cqlsh='docker run --net=host --rm -it cassandra cqlsh'
@@ -13,6 +9,10 @@ if _dot_is_osx && _dot_on_path docker; then
     alias mongo='docker run --net=host --rm -it mongo mongo'
     # couchbase-cli $subcmd -c $ip -u $user -p $pass
     alias couchbase-cli='docker run --net=host --rm -it couchbase couchbase-cli'
-
-    alias dmrestart='docker-machine restart default && eval $(docker-machine env default)'
 fi
+
+# inspired by https://forums.docker.com/t/docker-pull-not-using-correct-dns-server-when-private-registry-on-vpn/11117/30
+dockervpn() {
+    local ns=$(cat /etc/resolv.conf | grep nameserver)
+    echo "echo '$ns' > /etc/resolv.conf" >> ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty
+}

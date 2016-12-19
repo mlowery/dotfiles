@@ -3,6 +3,7 @@ if _dot_is_osx; then
         sudo port install python27
         sudo port install py27-pip
         sudo port select --set python python27
+        sudo port select --set python2 python27
         sudo port select --set pip pip27
     fi
     if _dot_on_path pip; then

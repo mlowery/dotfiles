@@ -1,5 +1,8 @@
+if _dot_on_path kubectl; then
+	source <(kubectl completion bash)
+fi
 
-kobj='po rc svc job no ns pv pvc rs dep ep secrets configmaps'
+kobj='cs configmaps ds deployments ev ep hpa ing jobs limits no ns po pv pvc quota rs rc secrets sa svc'
 
 for k in $kobj; do
 	alias kg$k="kubectl get $k"
@@ -13,3 +16,19 @@ alias kconfv='kubectl config view --minify'
 alias kconfu='kubectl config use-context'
 alias k='kubectl'
 alias kc='kubectl create -f'
+
+
+alias kjqnode="jq -r '.spec.nodeName'"
+alias kjqnodes="jq -r '.items[].spec.nodeName'"
+
+alias kjqip="jq -r '.status.podIP'"
+alias kjqips="jq -r '.items[].status.podIP'"
+
+# http://kubernetes.io/docs/user-guide/production-pods/#termination-message
+function ktermmsg() {
+    kubectl get po $1 -o go-template='{{range .status.containerStatuses}}{{.lastState.terminated.message}}{{end}}'
+}
+
+function ktermcode() {
+    kubectl get po $1 -o go-template='{{range .status.containerStatuses}}{{.lastState.terminated.exitCode}}{{end}}'
+}
