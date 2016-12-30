@@ -5,7 +5,7 @@
 case $TERM in
     xterm*)
         TITLEBAR="\e]2;\u@\H:\w\a\]"
-        if [ -n "$SSH_CLIENT" ]; then
+        if [[ $SSH_CLIENT || $HOSTNAME == moby ]]; then
             TAB="\[\e]1;\u@\H:\w\a"
         else
             TAB="\[\e]1;\w\a"
@@ -18,7 +18,7 @@ case $TERM in
 esac
 
 PROMPT="\w\$ "
-if [ -n "$SSH_CLIENT" ]; then
+if [[ $SSH_CLIENT || $HOSTNAME == moby ]]; then
     PROMPT="\u@\h:\w$ "
 fi
 

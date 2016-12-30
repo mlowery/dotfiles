@@ -1,4 +1,5 @@
-# Prefer US English and use UTF-8
-export LANG="en_US"
-export LC_ALL="en_US.UTF-8"
-
+if _dot_is_osx; then
+    # Prefer US English and use UTF-8
+    export LANG="en_US"
+    export LC_ALL="en_US.UTF-8"
+fi
