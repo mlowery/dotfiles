@@ -10,7 +10,7 @@
     "go.formatOnSave": false,
     "go.formatTool": "goreturns",
     "go.goroot": "/opt/local/lib/go",
-    "go.gopath": "/Users/mlowery/go-tools:/Users/mlowery/go-work",
+    "go.gopath": "/Users/mlowery/go-tools",
 	"search.exclude": {
 		"Godeps/**": true
 	},

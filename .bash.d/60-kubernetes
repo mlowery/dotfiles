@@ -2,7 +2,7 @@
 #	source <(kubectl completion bash)
 #fi
 
-kobj='cs configmaps ds deployments ev ep hpa ing jobs limits no ns po pv pvc quota rs rc secrets sa svc'
+kobj='clusterroles clusterrolebindings cs csr cm deploy ds ev ep hpa ing jobs limits no ns po psp pv pvc quota rolebindings roles rs rc secrets sa svc'
 
 for k in $kobj; do
 	alias kg$k="kubectl get $k"
@@ -10,6 +10,8 @@ for k in $kobj; do
 	alias kdel$k="kubectl delete $k"
 done
 
+alias k='kubectl'
+alias kg='kubectl get'
 alias klog='kubectl logs'
 alias kexec='kubectl exec'
 alias kconfv='kubectl config view --minify'
