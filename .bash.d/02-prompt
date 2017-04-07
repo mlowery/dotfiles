@@ -2,6 +2,26 @@
 # Shamelessly copied from https://github.com/gf3/dotfiles
 # Screenshot: http://i.imgur.com/s0Blh.png
 
+if [[ $TMUX ]]; then
+    set-tmux-title() {
+        printf "\033k$1\033\\"
+    }
+
+    # Simulate PS1's template placeholders since setting tmux title in PS1 rendered garbage characters
+    sim-ps1() {
+        local p
+        # collapse tilde
+        if [[ $PWD == $HOME || $PWD =~ ^$HOME/ ]]; then
+            p="${PWD/#$HOME/'~'}"
+        else
+            p="$PWD"
+        fi
+        echo "$USER@$(hostname -s):$p"
+    }
+
+    PROMPT_COMMAND="set-tmux-title \$(sim-ps1); $PROMPT_COMMAND"
+fi
+
 case $TERM in
     xterm*)
         TITLEBAR="\e]2;\u@\H:\w\a\]"
