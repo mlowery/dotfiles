@@ -16,5 +16,7 @@
 	},
     "files.associations": {
         "*.yaml.in": "yaml"
-    }
+    },
+    "editor.fontFamily": "'Source Code Pro', Monaco, Menlo, 'Courier New', monospace",
+    "editor.fontSize": 13,
 }
