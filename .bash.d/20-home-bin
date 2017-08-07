@@ -1,1 +1,3 @@
-_dot_prepend_to_path ~/bin
+if _dot_is_osx; then
+    _dot_prepend_to_path ~/bin
+fi

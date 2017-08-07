@@ -1,8 +1,5 @@
-if [[ -d $HOME/go-tools/bin ]]; then
-    _dot_prepend_to_path $HOME/go-tools/bin
+if _dot_is_osx; then
+    if [[ -d $HOME/go-tools/bin ]]; then
+        _dot_prepend_to_path $HOME/go-tools/bin
+    fi
 fi
-
-#export GOPATH=~/go-work
-
-# vim-go
-export GOBIN=~/go-tools/bin

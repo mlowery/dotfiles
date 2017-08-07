@@ -1,5 +1,4 @@
-
-if [[ $OSTYPE =~ ^darwin ]]; then
+if _dot_is_osx; then
     # Apple clang
     # /opt/local is from MacPorts
     export CFLAGS="-Qunused-arguments -I /opt/local/include -L /opt/local/lib"

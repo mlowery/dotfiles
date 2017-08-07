@@ -202,6 +202,9 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # Stop iTunes from responding to the keyboard media keys
 #launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
 
+# 3.0 is the max the UI will go
+defaults write -g com.apple.mouse.scaling 7.0
+
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################
