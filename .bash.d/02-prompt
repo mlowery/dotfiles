@@ -22,6 +22,13 @@ if [[ $TMUX ]]; then
     PROMPT_COMMAND="set-tmux-title \$(sim-ps1); $PROMPT_COMMAND"
 fi
 
+set-current-gopath() {
+    if [[ $GOPATH ]]; then
+        # http://technosophos.com/2014/06/06/show-gopath-in-your-shell-prompt.html
+        echo "($(basename ${GOPATH##*:}))"
+    fi
+}
+
 case $TERM in
     xterm*)
         TITLEBAR="\e]2;\u@\H:\w\a\]"
@@ -42,6 +49,6 @@ if [[ $SSH_CLIENT || $HOSTNAME == moby ]]; then
     PROMPT="\u@\h:\w$ "
 fi
 
-export PS1="$TAB$TITLEBAR\[$_dot_ORANGE\]$PROMPT\[$_dot_RESET\]"
+export PS1="$TAB$TITLEBAR\[$_dot_ORANGE\]\$(set-current-gopath)$PROMPT\[$_dot_RESET\]"
 export PS2="\[$_dot_ORANGE\]→ \[$_dot_RESET\]"
 export PS4='+(${BASH_SOURCE}:${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'

@@ -133,3 +133,20 @@ do_in_tunnel() {
     "${@:3}"
     ssh -S $socket -O exit $ip localhost &> /dev/null
 }
+
+
+e64() {
+    : "${1?val is required}"
+    for val in "$@"; do
+        printf "$val" | base64 -w 0
+        echo
+    done
+}
+
+d64() {
+    : "${1?val is required}"
+    for val in "$@"; do
+        printf "$val" | base64 -d
+        echo
+    done
+}
