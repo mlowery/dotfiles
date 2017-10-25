@@ -1,0 +1,3 @@
+if [[ -f ~/.antigen.zsh ]]; then
+    source ~/.antigen.zsh
+fi

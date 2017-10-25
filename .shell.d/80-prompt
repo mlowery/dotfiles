@@ -1,0 +1,4 @@
+if _dot_has_antigen; then
+    antigen bundle mafredri/zsh-async
+    antigen bundle sindresorhus/pure
+fi

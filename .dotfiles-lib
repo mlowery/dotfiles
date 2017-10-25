@@ -44,14 +44,6 @@ _dot_is_sudoer() {
     sudo -n true &> /dev/null
 }
 
-_dot_net_ok() {
-    if [[ $_DOT_NET_OK == true ]]; then
-        return 0
-    else
-        return 1
-    fi
-}
-
 _dot_clone_or_pull() {
     local repo="${1?repo is required}"
     local dir="${2?dir is required}"
@@ -61,4 +53,20 @@ _dot_clone_or_pull() {
     else
         (cd $dir && git pull)
     fi
+}
+
+_dot_shell() {
+    basename $(ps -p $$ -oargs=)
+}
+
+_dot_is_zsh() {
+    [[ $(_dot_shell) == zsh ]]
+}
+
+_dot_is_bash() {
+    [[ $(_dot_shell) == bash ]]
+}
+
+_dot_has_antigen() {
+    type antigen &> /dev/null
 }

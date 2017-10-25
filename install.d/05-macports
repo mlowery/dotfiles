@@ -25,6 +25,7 @@ if _dot_is_osx; then
         sudo port install hub
         sudo port install jq
         sudo port install dos2unix
+        sudo port install zsh
 
         # godep
         sudo port install mercurial

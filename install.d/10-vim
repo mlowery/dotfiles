@@ -1,7 +1,5 @@
-if _dot_net_ok; then
-    mkdir -p ~/.vim/autoload
-    mkdir -p ~/.vim/bundle
-    curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-    _dot_clone_or_pull git://github.com/tpope/vim-sensible.git ~/.vim/bundle/vim-sensible
-    _dot_clone_or_pull git://github.com/altercation/vim-colors-solarized.git ~/.vim/bundle/vim-colors-solarized
-fi
+mkdir -p ~/.vim/autoload
+mkdir -p ~/.vim/bundle
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+_dot_clone_or_pull git://github.com/tpope/vim-sensible.git ~/.vim/bundle/vim-sensible
+_dot_clone_or_pull git://github.com/altercation/vim-colors-solarized.git ~/.vim/bundle/vim-colors-solarized

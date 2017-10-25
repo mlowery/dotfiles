@@ -1,0 +1,11 @@
+# The following lines were added by compinstall
+zstyle :compinstall filename '/Users/mlowery/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+setopt autopushd
+
+autoload -U select-word-style
+select-word-style bash

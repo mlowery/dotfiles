@@ -1,0 +1,6 @@
+# Don’t clear the screen after quitting a manual page
+export MANPAGER="less -X"
+
+if _dot_has_antigen; then
+    antigen bundle robbyrussell/oh-my-zsh plugins/colored-man-pages
+fi

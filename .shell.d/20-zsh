@@ -1,0 +1,5 @@
+if _dot_has_antigen; then
+    antigen bundle zsh-users/zsh-syntax-highlighting
+    antigen bundle zsh-users/zsh-completions
+    antigen bundle zsh-users/zsh-autosuggestions
+fi

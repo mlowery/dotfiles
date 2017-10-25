@@ -1,14 +1,8 @@
 # dotfiles
 
-These are my dotfiles. It is collection of scripts, almost all of which were 
-written by people 
-other than myself. Originally a fork of [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles), 
-it's a little different now. It's still rsync-based but bootstrapping is done via `install.sh` which rsyncs then runs through
-the `install.d` directory, installing various tools. Also, `.bash_profile` and `.bashrc` source files in 
-`.bash.d`.
+These are my dotfiles. It is collection of scripts, almost all of which were written by people other than myself. Originally a fork of [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles), it's a little different now. It's still rsync-based but bootstrapping is done via `install.sh` which rsyncs then runs through the `install.d` directory, installing various tools. Also, `~/.{zsh,bash}rc` files source files in `.shell.d`.
 
-A user can be bootstrapped with this script (which I keep as a snippet in 
-[ClipMenu](http://www.clipmenu.com/) for easy pasting):
+A user can be bootstrapped in a way similar to the following:
 
 ```bash
 bash <(curl -sL https://gist.github.com/mlowery/gist123/raw)
@@ -38,10 +32,44 @@ fi
 
 ## Credits
 
-I haven't been very good at keeping tabs on where I steal from but typically the 
-credit is in the script file itself. Here are some highlights:
+Typically the credit is in the script file itself, however here are some highlights:
 
 * [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
 * [Bash-it/bash-it](https://github.com/Bash-it/bash-it)
 * [cowboy/dotfiles](https://github.com/cowboy/dotfiles)
 * [holman/dotfiles](https://github.com/holman/dotfiles)
+* [robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+
+## iTerm Profile
+
+### Shell
+
+General > Command > Command: `/opt/local/bin/zsh --login` (from MacPorts)
+
+### Colors
+
+Colors > Color Presets... > Snazzy (from https://github.com/sindresorhus/iterm2-snazzy)
+
+### Keys
+
+The following key mappings convert MacOS-style keys to emacs keys (which are in turn configured with zsh's `bindkey` builtin).
+
+MacOS Keys|Behavior|emacs Keys|iTerm|Extra Steps
+---|---|---|---|---
+⌘z|Undo|`^_`|Send Hex Codes: `0x1f`|
+⇧⌘Z|Redo|`^X^_`|Send Hex Codes: `0x18 0x1f`|`bindkey "^X^_" redo`
+⌘←Delete|Delete to beginning of line|`^X DEL`|Send Hex Codes: `0x18 0x7f`|`bindkey "^X\\x7f" backward-kill-line`
+⌘fn←Delete or ⌘Delete→|Delete to end of line|`^K`|Send Hex Codes: `0x0b`
+⌥←Delete|Delete word left|?|Send Hex Codes: `0x1b 0x08`|
+⌥fn←Delete or ⌥Delete→|Delete word right|?|Send Hex Codes: `0x01b 0x64`|
+⌘←|Move to beginning of line|?|Send Hex Codes: `0x01`|
+⌘→|Move to end of line|?|Send Hex Codes: `0x05`|
+⌥←|Move word left|?|Send Hex Codes: `0x1b 0x62`|
+⌥→|Move word right|?|Send Hex Codes: `0x1b 0x66`|
+fn←Delete or Delete→|Delete character right|`^D`|Send Hex Codes: `0x04`|
+
+#### Credits
+
+* https://stackoverflow.com/a/32340345
+* https://stackoverflow.com/a/22312856
+* https://stackoverflow.com/a/29403520

@@ -1,22 +1,19 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-cd "$(dirname "${BASH_SOURCE}")"
+cd $(dirname $0)
 
-_DOT_NET_OK=true
-if [[ $1 == --no-net ]]; then
-    _DOT_NET_OK=false
+if [[ $1 == --rsync-only ]]; then
+    _DOT_RSYNC_ONLY=true
 fi
 
 source .dotfiles-lib
 
-if _dot_net_ok && ! _dot_on_path git; then
+if ! _dot_on_path git; then
     echo "ERROR: git is required"
     exit 1
 fi
 
-if _dot_net_ok; then
-    git pull origin master
-fi
+git pull origin master
 
 function _dot_install() {
 
@@ -24,6 +21,10 @@ function _dot_install() {
           --exclude "install.sh" --exclude "install.d"  --exclude "README.md" \
           --exclude "LICENSE-MIT.txt" --exclude ".idea" \
           -avK --no-perms --executability . ~
+
+    if [[ $_DOT_RSYNC_ONLY ]]; then
+        exit 0
+    fi
 
     local install_dir=install.d
     if [[ -d $install_dir ]]; then
