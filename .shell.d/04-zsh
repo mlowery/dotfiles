@@ -7,5 +7,8 @@ compinit
 
 setopt autopushd
 
+# removed slash from default WORDCHARS
+export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 autoload -U select-word-style
-select-word-style bash
+# normal: Word characters are alphanumerics plus $WORDCHARS
+select-word-style normal
