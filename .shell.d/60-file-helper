@@ -1,5 +1,6 @@
+# Create timestamped backup of given file in same directory as given file.
 function bak() {
-  cp -p -r $1 $1~`date +%Y%m%d_%H%M%S`~
+  (cd $(dirname $1) && cp -p -r $(basename $1) $(basename $1)~`date +%Y%m%d_%H%M%S`~)
 }
 
 function trunc() {
