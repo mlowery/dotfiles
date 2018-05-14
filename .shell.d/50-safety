@@ -9,4 +9,5 @@ if _dot_on_path poweroff; then
 fi
 
 #alias rm='rm -iv'
+alias rm='echo "use trash instead of: rm"'
 

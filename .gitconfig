@@ -38,6 +38,7 @@
     mc = merge --no-ff
     rrm = remote remove
     squash = reset --soft
+    tracking = rev-parse --abbrev-ref --symbolic-full-name @{u}
 
 [pull]
     rebase = preserve
@@ -57,10 +58,30 @@
     #whitespace = space-before-tab,indent-with-non-tab,trailing-space
     editor = vim
 
+    # from https://github.com/so-fancy/diff-so-fancy
+    pager = diff-so-fancy | less --tabs=4 -RFX
+
 [color]
     # Use colors in Git commands that are capable of colored output when
     # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
     ui = auto
+
+# from https://github.com/so-fancy/diff-so-fancy
+[color "diff-highlight"]
+oldNormal    = "red bold"
+oldHighlight = "red bold 52"
+newNormal    = "green bold"
+newHighlight = "green bold 22"
+
+# from https://github.com/so-fancy/diff-so-fancy
+[color "diff"]
+meta =       "yellow"
+frag =       "magenta bold"
+commit =     "yellow bold"
+old =        "red bold"
+new =        "green bold"
+whitespace = "red reverse"
+
 [merge]
     # Include summaries of merged commits in newly created merge commit messages
     log = true
@@ -85,11 +106,6 @@
 [commit]
   template = ~/.gitmessage
   verbose = true
-
-[pager]
-  log = diff-highlight | less
-  show = diff-highlight | less
-  diff = diff-highlight | less
 
 [interactive]
   diffFilter = diff-highlight
