@@ -8,7 +8,8 @@ compinit
 setopt autopushd
 
 # removed slash from default WORDCHARS
-export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+# added vertical bar (pipe) to stop backward-kill-word
+export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>|'
 autoload -U select-word-style
 # normal: Word characters are alphanumerics plus $WORDCHARS
 select-word-style normal
