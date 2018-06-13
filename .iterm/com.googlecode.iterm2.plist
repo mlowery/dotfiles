@@ -643,8 +643,10 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~</string>
+	<string>~/Downloads</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
+	<string>{712, 448}</string>
+	<key>NSNavPanelExpandedSizeForSaveMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
@@ -677,16 +679,25 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
+	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
+	<dict>
+		<key>TB Is Shown</key>
+		<integer>1</integer>
+	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>2929 110 445 103 0 0 3440 1417 </string>
+	<string>2929 37 445 77 0 0 3440 1417 </string>
+	<key>NSWindow Frame SUStatusFrame</key>
+	<string>520 561 400 129 0 0 1440 877 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>1410 769 620 392 0 0 3440 1417 </string>
+	<string>1410 768 620 392 0 0 3440 1417 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>79 54 606 469 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>136 535 1016 512 0 0 3440 1417 </string>
+	<string>198 237 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 4 1714 1413 0 0 3440 1417 </string>
+	<string>0 402 650 475 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>327 600 650 473 0 0 3440 1417 </string>
+	<string>0 912 650 475 0 0 3440 1417 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -3572,12 +3583,19 @@
 			<string>/Users/mlowery</string>
 		</dict>
 	</array>
+	<key>NoSyncHaveUsedCopyMode</key>
+	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>40969515-6DEA-4B73-974E-6DB894118FE1</string>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
+	<key>NoSyncSavePanelSavedSettings_StartSessionLog</key>
+	<dict>
+		<key>Initial Directory</key>
+		<string>/Users/mlowery/Downloads</string>
+	</dict>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>513287841.951226</real>
 	<key>OnlyWhenMoreTabs</key>
@@ -3646,7 +3664,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-10-24T13:17:59Z</date>
+	<date>2018-06-13T16:10:57Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -10836,6 +10854,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.4</string>
+	<string>3.1.6</string>
 </dict>
 </plist>
