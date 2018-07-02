@@ -1,5 +1,9 @@
 // Place your settings in this file to overwrite the default settings
 {
     "editor.fontFamily": "'Source Code Pro', Monaco, Menlo, 'Courier New', monospace",
-    "editor.fontSize": 13
+    "editor.fontSize": 13,
+    "files.associations": {
+        "config": "yaml",
+        ".supernova": "ini"
+    }
 }
