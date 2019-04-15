@@ -1,3 +1,11 @@
+git clone dotfiles
+Install iterm
+install source code pro font from google
+remap caps lock key to control
+
+
+
+
 # dotfiles
 
 These are my dotfiles. It is collection of scripts, almost all of which were written by people other than myself. Originally a fork of [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles), it's a little different now. It's still rsync-based but bootstrapping is done via `install.sh` which rsyncs then runs through the `install.d` directory, installing various tools. Also, `~/.zshrc` sources files in `~/.shell.d`.
