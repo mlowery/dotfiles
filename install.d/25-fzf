@@ -1,2 +1,2 @@
 _dot_clone_or_pull https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+~/.fzf/install --key-bindings --completion --no-update-rc
