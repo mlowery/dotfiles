@@ -39,6 +39,7 @@
     rrm = remote remove
     squash = reset --soft
     tracking = rev-parse --abbrev-ref --symbolic-full-name @{u}
+    cp = cherry-pick
 
 [pull]
     rebase = preserve
