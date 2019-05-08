@@ -40,6 +40,9 @@
     squash = reset --soft
     tracking = rev-parse --abbrev-ref --symbolic-full-name @{u}
     cp = cherry-pick
+    # use to edit head commit during an interactive rebase
+    edit = !git reset HEAD^
+    
 
 [pull]
     rebase = preserve

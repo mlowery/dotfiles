@@ -1,14 +1,18 @@
-git clone dotfiles
-Install iterm
-install source code pro font from google
-remap caps lock key to control
-
-
-
-
 # dotfiles
 
 These are my dotfiles. It is collection of scripts, almost all of which were written by people other than myself. Originally a fork of [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles), it's a little different now. It's still rsync-based but bootstrapping is done via `install.sh` which rsyncs then runs through the `install.d` directory, installing various tools. Also, `~/.zshrc` sources files in `~/.shell.d`.
+
+## Installation: MacOS
+
+1. Install git (from Xcode).
+1. Install brew.
+1. Install the ssh key from a github zip or create a new one and install into GitHub.
+1. git clone dotfiles
+1. Install iterm
+1. install source code pro font from google
+1. remap caps lock key to control
+
+## Installation: Linux
 
 A user can be bootstrapped in a way similar to the following:
 
@@ -39,6 +43,8 @@ fi
 ```
 
 ## iTerm Profile
+
+All of the following can be imported from the ~/.iterm directory.
 
 ### Shell
 
