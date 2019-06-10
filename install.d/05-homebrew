@@ -1,9 +1,18 @@
+# Make sure we’re using the latest Homebrew.
+brew update
+
+# Upgrade any already-installed formulae.
+brew upgrade
+
 if _dot_is_osx; then
     if _dot_on_path brew; then
-        for f in bash bat coreutils dep fd findutils git git-crypt gnu-sed gnu-tar gnupg go grep hub jq ripgrep tree vim watch zsh; do
+        for f in bash bat coreutils dep fd findutils gawk git git-crypt gnu-sed gnu-tar gnupg go grc grep hub jq kustomize less lnav make moreutils openssh ripgrep stern tree vim watch wget zsh; do
             brew install $f
         done
     else
         echo "WARNING: HomeBrew not installed"
     fi
 fi
+
+# Remove outdated versions from the cellar.
+brew cleanup

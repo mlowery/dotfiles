@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+
+remote_prefix=github/
+
+for br in $(git branch -r | grep $remote_prefix); do
+    # create and track
+    git checkout --track $br
+    # switch to branch
+    git checkout ${br#"$remote_prefix"}
+    # get latest
+    git pull
+done
+
+git push --all upstream
+git push --tags upstream

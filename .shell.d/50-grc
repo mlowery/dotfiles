@@ -1,0 +1,9 @@
+# https://github.com/garabik/grc
+if _dot_on_path grc; then
+    alias dig="grc --colour=auto dig"
+    # env breaks commands like `env x=y cmd`
+    #alias env="grc --colour=auto env"
+    alias ping="grc --colour=auto ping"
+    alias ps="grc --colour=auto ps"
+    alias traceroute="grc --colour=auto traceroute"
+fi
