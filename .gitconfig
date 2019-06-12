@@ -45,7 +45,7 @@
     
 
 [pull]
-    rebase = preserve
+    rebase = merges
 
 [apply]
     # Detect whitespace errors when applying a patch
