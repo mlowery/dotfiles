@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# git cherry with some help!
+
+usage='usage: git-cherry-helper C1 C2
+
+Show commits in C2 that are missing in C1.
+'
+
+go() {
+    local c1="${1?$usage}"
+    local c2="${2?$usage}"
+    git cherry -v $c1 $c2 | grep ^+
+}
+
+go $1 $2
