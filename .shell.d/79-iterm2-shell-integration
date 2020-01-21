@@ -7,3 +7,9 @@ if [[ -f ~/.iterm2_shell_integration.zsh ]]; then
     # this is consumed in /Users/mlowery/.antigen/bundles/mlowery/pure/pure.plugin.zsh
     PROMPT_START_MARK='%{$(iterm2_prompt_mark)%}'
 fi
+
+if _dot_on_path iterm2_set_user_var; then
+    # see iTerm2 > Preferences > Profiles > General > badge
+    # ref: https://iterm2.com/documentation-badges.html
+    alias badge="iterm2_set_user_var badge"
+fi
