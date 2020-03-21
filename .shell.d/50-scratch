@@ -1,0 +1,7 @@
+# create a scratch dir; this is a function so it can change the current dir
+function scratch {
+    local title=${1?"scratch title is required"}
+    local dir=~/notes/scratch/$title
+    mkdir -p "$dir"
+    cd "$dir"
+}

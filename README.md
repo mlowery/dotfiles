@@ -4,51 +4,22 @@ These are my dotfiles. It is collection of scripts, almost all of which were wri
 
 ## Installation: MacOS
 
-1. Install git (from Xcode).
+These are notes specific to me but perhaps are of use for anyone.
+
+1. Install git (from Xcode). (It will be upgraded later via `install.sh`.)
 1. Install brew.
-1. Install the ssh key from a github zip or create a new one and install into GitHub.
-1. git clone dotfiles
-1. Install iterm
-1. install source code pro font from google
-1. remap caps lock key to control
+1. Clone dotfiles.
+1. Install iTerm2.
+1. Install source code pro font from Google.
+1. Remap caps lock key to control.
 
-## Installation: Linux
+## iTerm2 Profile
 
-A user can be bootstrapped in a way similar to the following:
-
-```bash
-bash <(curl -sL https://gist.github.com/mlowery/gist123/raw)
-```
-
-Where the gist contains something like this:
-
-```bash
-if ! which git &> null; then
-  echo "Installing git..."
-  # this will give you the latest git
-  sudo add-apt-repository -y ppa:git-core/ppa
-  sudo apt-get -y update
-  sudo apt-get -y install git
-fi
-
-install_dir=~/dotfiles
-
-if [[ ! -d $install_dir ]]; then
-  git clone https://github.com/mlowery/dotfiles.git "$install_dir"
-else
-  (cd "$install_dir" && git pull --ff-only)
-fi
-
-(cd "$install_dir" && ./install.sh)
-```
-
-## iTerm Profile
-
-All of the following can be imported from the ~/.iterm directory.
+All of the following can be imported from the ~/.iterm directory but are additionally documented here.
 
 ### Shell
 
-General > Command > Command: `/opt/local/bin/zsh --login` (from MacPorts)
+General > Command > Command: `/opt/local/bin/zsh --login` (from brew)
 
 ### Colors
 

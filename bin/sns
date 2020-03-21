@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# http://redsymbol.net/articles/unofficial-bash-strict-mode/
+set -euo pipefail
+
+# save n' sample
+# never assume you backed up the right content without sampling it
+# use like `cat FILE1 | sns FILE2` or `kubectl get ... | sns FILE`
+
+function sns {
+    local f=${1?"path is required"}
+    tee $f | (head; echo "..."; tail)
+}
+
+sns "${@-}"

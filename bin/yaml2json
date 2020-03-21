@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# http://redsymbol.net/articles/unofficial-bash-strict-mode/
+set -euo pipefail
+
 if ! which img-exec &> /dev/null; then
     echo "Requires img-exec from https://github.com/mlowery/executable-image"
     exit 1

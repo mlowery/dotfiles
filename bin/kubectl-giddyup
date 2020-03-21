@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# GIDD - get
+# Y - "eee" for edit
+# UP - up for update
+
+set -euo pipefail
+
+work_dir=${KUBECTL_GIDDYUP_WORKDIR-.}
+prefix=$(date +%Y_%m_%d__%H_%M_%S)
+# take stdin, store to file orig, edit the stream, pipe to file new, kubectl apply stream
+kubectl get "${@-}" > $work_dir/$prefix-orig
+cp $work_dir/$prefix-orig $work_dir/$prefix-new
+$EDITOR $work_dir/$prefix-new
+# if here, we exited the editor succesfully; do a quick check to see if it was changed at all
+if /usr/bin/diff $work_dir/$prefix-orig $work_dir/$prefix-new &> /dev/null; then
+    echo "No changes found"
+    exit 0
+fi
+kubectl apply -f $work_dir/$prefix-new

@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# http://redsymbol.net/articles/unofficial-bash-strict-mode/
+set -euo pipefail
+
+usage='usage: fork-and-clone REPO
+
+Fork a repo (if not already forked) using `hub` then clone the fork.
+
+Remote `origin` is fork.
+Remote `upstream` is REPO.
+'
+
+function go {
+    local repo=${1?"repo is required"}
+    local dir=${2-}
+    if [[ ! $dir ]]; then
+        # first, strip everything before last slash
+        dir=${repo##*/}
+        # second, strip the .git extension
+        dir=${dir%.git}
+        # third, prepend pwd
+        dir=$(pwd)/$dir
+        mkdir -p $dir
+    fi
+    git clone -o upstream $repo $dir
+    cd $dir && hub fork --remote-name origin
+}
+
+go "${@-}"

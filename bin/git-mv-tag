@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# http://redsymbol.net/articles/unofficial-bash-strict-mode/
+set -euo pipefail
+
 # Moves a tag locally and remotely.
 
 usage="usage: git-mv-tag TAG REMOTE"

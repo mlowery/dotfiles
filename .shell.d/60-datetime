@@ -1,0 +1,9 @@
+# date for use in filenames
+alias safedate='date +%Y_%m_%d__%H_%M_%S'
+
+function now {
+    # UTC
+    date -u
+    # local timezone
+    date
+}
