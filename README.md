@@ -12,6 +12,25 @@ These are notes specific to me but perhaps are of use for anyone.
 1. Install iTerm2.
 1. Install source code pro font from Google.
 1. Remap caps lock key to control.
+1. Set up `pre-commit` hook to check for no-no strings before commits:
+
+```bash
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+fatal() { printf "%s\n" "$*" >&2; exit 1; }
+
+search() {
+	local s=${1?"search string is required"}
+	if rg -i $s; then
+		fatal "One or more files contain string \"$s\""
+	fi
+}
+
+search s1
+search s2
+```
 
 ## iTerm2 Profile
 
