@@ -9,6 +9,9 @@ setopt autopushd
 
 setopt interactivecomments
 
+# http://zsh.sourceforge.net/Doc/Release/Options.html#index-file-clobbering_002c-allowing
+setopt noclobber
+
 # removed slash from default WORDCHARS
 # added vertical bar (pipe) to stop backward-kill-word
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>|'

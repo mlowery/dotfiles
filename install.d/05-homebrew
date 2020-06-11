@@ -6,7 +6,7 @@ brew upgrade
 
 if _dot_is_osx; then
     if _dot_on_path brew; then
-        for f in bash bat coreutils dep exa fd findutils gawk git git-crypt gnu-sed gnu-tar gnupg go grc grep hub jq kustomize less lnav make moreutils openssh ripgrep stern tree vim watch wget zsh; do
+        for f in bash bat coreutils dep exa fd findutils gawk git git-crypt gnu-sed gnu-tar gnupg go grc grep hub jq kustomize less lnav make mercurial moreutils openssh ripgrep stern tree vim watch wget zsh; do
             brew install $f
         done
     else
