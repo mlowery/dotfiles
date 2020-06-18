@@ -44,6 +44,9 @@ defaults write com.apple.universalaccess reduceTransparency -bool true
 # 	"/System/Library/CoreServices/Menu Extras/Battery.menu" \
 # 	"/System/Library/CoreServices/Menu Extras/Clock.menu"
 
+# Show Date in menubar clock
+defaults write com.apple.menuextra.clock DateFormat -string "EEEMMM d h:mm a"
+
 # Set highlight color to green
 #defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"
 
