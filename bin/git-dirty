@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# returns 0 if dirty (uncommitted or untracked files) and 1 if clean
+
+# for d in *; do echo -n "$d "; (cd $d; if git-dirty; then echo dirty; else echo clean; fi; ); done | grep dirty
+
+# https://stackoverflow.com/a/2659808/13008098
+
+test -n "$(git status --porcelain)"
