@@ -1,1 +1,7 @@
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+alias -g YP='-o yaml | bat -l yaml'
+alias -g Y='-o yaml'
+
+alias -g JP='-o json | bat -l json'
+alias -g J='-o json'
