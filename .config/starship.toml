@@ -1,0 +1,124 @@
+[aws]
+disabled = true
+
+[battery]
+disabled = true
+
+[cmake]
+disabled = true
+
+[cmd_duration]
+format = "[$duration]($style) "
+
+[conda]
+disabled = true
+
+[crystal]
+disabled = true
+
+[dart]
+disabled = true
+
+[directory]
+truncate_to_repo = false
+style = "blue"
+truncation_length = 50
+
+[dotnet]
+disabled = true
+
+[elixir]
+disabled = true
+
+[elm]
+disabled = true
+
+[erland]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[git_branch]
+# ansi 8 is dark gray
+# https://i.stack.imgur.com/KTSQa.png
+format = "[$branch](fg:8) "
+
+[golang]
+disabled = true
+
+[helm]
+disabled = true
+
+[java]
+disabled = true
+
+[julia]
+disabled = true
+
+[kubernetes]
+disabled = false
+format = '[$symbol$context(:$namespace)]($style) '
+style = "white dimmed"
+symbol = ""
+
+[lua]
+disabled = true
+
+[hg_branch]
+disabled = true
+
+[nim]
+disabled = true
+
+[nix_shell]
+disabled = true
+
+[package]
+disabled = true
+
+[ocaml]
+disabled = true
+
+[openstack]
+disabled = true
+
+[perl]
+disabled = true
+
+[php]
+disabled = true
+
+[python]
+disabled = true
+
+[ruby]
+disabled = true
+
+[rust]
+disabled = true
+
+[singularity]
+disabled = true
+
+[swift]
+disabled = true
+
+[terraform]
+disabled = true
+
+[zig]
+disabled = true
+
+[purescript]
+disabled = true
+
+[custom.proxy]
+when = 'test -n "${HTTP_PROXY}"'
+command = "echo "
+style = "fg:purple"
+
+[custom.sk-dirty]
+when = 'sk-dirty -q'
+command = "echo 💾"
+

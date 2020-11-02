@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+function dirty {
+    local d=/tmp/sticky_kubeconfig/${TERM_SESSION_ID//:/-}
+    if [[ -z $KUBECONFIG || ! -f $d/config ]]; then
+        return 1
+    fi
+    local mine=$(mktemp)
+    local orig=$(mktemp)
+    cat $KUBECONFIG | grep -v "^current-context: " > $mine
+    cat $_STICKY_KUBECONFIG_GOLDEN | grep -v "^current-context: " > $orig
+    if ! /usr/bin/diff $mine $orig &> /dev/null; then
+        return 0
+    fi
+    return 1
+}
+
+function run {
+    local quiet=no
+    if [[ ${1-} == -q ]]; then
+        quiet=yes
+    fi
+    if [[ $quiet == no ]]; then
+        if dirty; then
+            echo "WARN: $KUBECONFIG and $_STICKY_KUBECONFIG_GOLDEN files differ."
+            echo "To discard your copy: cp $_STICKY_KUBECONFIG_GOLDEN $KUBECONFIG"
+            echo "To persist your copy: cp $KUBECONFIG $_STICKY_KUBECONFIG_GOLDEN"
+        fi
+    else
+        set +e
+        dirty
+        retval=$?
+        set -e
+        return $retval
+    fi
+}
+
+run "${@}"

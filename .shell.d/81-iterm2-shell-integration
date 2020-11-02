@@ -1,11 +1,9 @@
+# must come after starship prompt!
+
 # https://www.iterm2.com/documentation-shell-integration.html
 # sourcing this file adds the iterm mark to the prompt
 if [[ -f ~/.iterm2_shell_integration.zsh ]]; then
-    # squelch allows us to control where the mark starts
-    export ITERM2_SQUELCH_MARK=1
     source ~/.iterm2_shell_integration.zsh
-    # this is consumed in /Users/mlowery/.antigen/bundles/mlowery/pure/pure.plugin.zsh
-    PROMPT_START_MARK='%{$(iterm2_prompt_mark)%}'
 fi
 
 if _dot_on_path iterm2_set_user_var; then

@@ -5,3 +5,8 @@ alias -g Y='-o yaml'
 
 alias -g JP='-o json | bat -l json'
 alias -g J='-o json'
+alias -g KS='kube-system'
+alias -g RB='rolebinding'
+alias -g CRB='clusterrolebinding'
+alias -g CR='clusterrole'
+alias -g SS='statefulset'
