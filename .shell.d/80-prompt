@@ -1,3 +1,15 @@
 if _dot_is_zsh; then
     eval "$(starship init zsh)"
 fi
+
+function set_win_title {
+    local d="$PWD"
+    if [[ $d == $HOME ]]; then
+        d='~'
+    else
+        d="$(basename $d)"
+    fi
+    print -Pn "\e]1;$d\a" # set tab name
+}
+
+precmd_functions+=(set_win_title)

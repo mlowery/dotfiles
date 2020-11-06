@@ -42,6 +42,9 @@
     cp = cherry-pick
     # use to edit head commit during an interactive rebase
     edit = !git reset HEAD^
+
+    defer = stash push -a -m
+    undefer = stash pop
     
 
 [pull]
