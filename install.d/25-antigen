@@ -1,1 +1,1 @@
-curl -L git.io/antigen > ~/.antigen.zsh
+curl -L https://git.io/antigen > ~/antigen.zsh

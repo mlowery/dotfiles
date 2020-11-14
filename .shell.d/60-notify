@@ -1,0 +1,8 @@
+if _dot_is_osx; then
+    function notify {
+        local msg="${1?msg is required}"
+        local title="${2-}"
+        local subtitle="${3-}"
+        osascript -e "display notification \"$1\" with title \"$2\" subtitle \"$3\" sound name \"Glass\""
+    }
+fi

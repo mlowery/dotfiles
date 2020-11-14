@@ -27,11 +27,6 @@ function ips(){
     ifconfig | grep "inet " | awk '{ print $2 }'
 }
 
-# URL-encode strings
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
-
-alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1]);"'
-
 alias pidinfo='ps -fp'
 alias sockgrep='ss -nlp | grep'
 

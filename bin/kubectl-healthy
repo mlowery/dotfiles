@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+kubectl get cs -o json | jq -r '.items[] | "\(.metadata.name): \(.conditions[] | select(.type == "Healthy") | .status)"'
