@@ -1,101 +1,12 @@
-# Start an HTTP server from a directory, optionally specifying the port
-function server() {
-    local port="${1:-8000}"
-    sleep 1 && open "http://localhost:${port}/" &
-    # Set the default Content-Type to `text/plain` instead of `application/octet-stream`
-    # And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
-    python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
-}
-
-# Syntax-highlight JSON strings or files
-# Usage: `json '{"foo":42}'` or `echo '{"foo":42}' | json`
-if which pygmentize &> /dev/null; then
-function json() {
-    if [ -t 0 ]; then # argument
-        python -mjson.tool <<< "$*" | pygmentize -l javascript
-    else # pipe
-        python -mjson.tool | pygmentize -l javascript
-    fi
-}
-fi
-
 function rmkey() {
     ssh-keygen -R `echo !$ | cut -d '@' -f 2`
 }
-
-function ips(){
-    ifconfig | grep "inet " | awk '{ print $2 }'
-}
-
-alias pidinfo='ps -fp'
-alias sockgrep='ss -nlp | grep'
 
 function histdel() {
     if [[ $# -eq 1 ]]; then
         history -d "$1"
         history -w # remove command with sensitive info
     fi
-}
-
-# fails on low-level curl failure
-# if no low-level failures, always displays response no matter status code (not like curl -f)
-# returns non-zero on status codes >= 400
-# adds a trailing newline (nice to avoid later stdout using same line)
-# don't pass -f to this function as it hides the output
-function curl_it {
-    local temp_file="$(mktemp)"
-    local status_code
-    # declaration and assignment must be on diff lines to get $?
-    set +e
-    status_code=$(curl --output "$temp_file" --write-out "%{http_code}" "${@}")
-    set -e
-    local curl_exit_code=$?
-    if [[ $curl_exit_code != 0 ]]; then
-        echo "ERROR: curl returned $curl_exit_code"
-        return $curl_exit_code
-    fi
-    local exit_code=0
-    if (( "$status_code" >= 400 )); then
-        echo "ERROR: Received HTTP status $status_code"
-        # return curl's --failure exit code
-        exit_code=22
-    fi
-    cat "$temp_file"
-    echo
-    \rm "$temp_file"
-
-    return $exit_code
-}
-
-# You can alias this like:
-# alias create_x_github_repo="create_github_repo $x_url $x_token"
-function create_github_repo {
-    local api_url="$1"
-    local token="$2"
-    local repo_name="$3"
-    output=$(curl_it "$api_url/user/repos" -s -H "Authorization: token $token" -X POST -d "{\"name\": \"$repo_name\", \"private\": true}")
-    declare -i curl_it_exit_code=$?
-    if [[ $curl_it_exit_code == 0 ]]; then
-      python -c "import json,sys;obj=json.load(sys.stdin);print(obj['ssh_url']);" <<< "$output"
-    else
-      echo "$output"
-      return $curl_it_exit_code
-    fi
-}
-
-get_free_port() {
-    python -c 'import socket; s=socket.socket(); s.bind(("", 0)); print(s.getsockname()[1]); s.close()'
-}
-
-do_in_tunnel() {
-    local forward_string="${1?forward_string (local_port:dest_host:dest_port) is required}"
-    local gateway_string="${2?gateway_string (user@host) is required}"
-    local first_cmd_token="${3?cmd is required}"
-    local socket="$(mktemp)"
-    \rm $socket
-    ssh -M -S $socket -NfL $forward_string $gateway_string
-    "${@:3}"
-    ssh -S $socket -O exit $ip localhost &> /dev/null
 }
 
 e64() {
