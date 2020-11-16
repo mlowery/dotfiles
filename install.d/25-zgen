@@ -2,14 +2,11 @@ _dot_clone_or_pull https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
 
 source "${HOME}/.zgen/zgen.zsh"
 
-zgen oh-my-zsh
-
 zgen oh-my-zsh lib/history.zsh
 
 zgen oh-my-zsh plugins/colored-man-pages
 zgen oh-my-zsh plugins/docker
 zgen oh-my-zsh plugins/gitfast
-zgen oh-my-zsh plugins/urltools
 
 zgen load zsh-users/zsh-syntax-highlighting
 zgen load zsh-users/zsh-completions
