@@ -52,7 +52,3 @@ _dot_shell() {
 _dot_is_zsh() {
     [[ $(_dot_shell) == zsh ]]
 }
-
-_dot_has_antigen() {
-    type antigen &> /dev/null
-}

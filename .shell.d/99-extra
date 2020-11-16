@@ -1,3 +1,1 @@
-if [[ -f ~/.dotfiles_extra ]]; then
-    source ~/.dotfiles_extra
-fi
+[ -f ~/.dotfiles_extra ] && source ~/.dotfiles_extra

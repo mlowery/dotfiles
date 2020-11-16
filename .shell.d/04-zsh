@@ -1,9 +1,4 @@
-# The following lines were added by compinstall
-zstyle :compinstall filename '/Users/mlowery/.zshrc'
-
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
+# note: compinit handled by zgen
 
 setopt autopushd
 

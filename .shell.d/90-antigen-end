@@ -1,3 +1,0 @@
-if _dot_has_antigen; then
-    antigen apply
-fi

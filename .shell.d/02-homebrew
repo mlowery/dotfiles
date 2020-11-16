@@ -1,8 +1,0 @@
-if _dot_is_osx; then
-
-    # for every gnu util that we want to prioritize over apple
-    for d in $(find -L /usr/local/opt -name gnubin -type d); do
-        _dot_prepend_to_path $d
-    done
-
-fi

@@ -1,0 +1,6 @@
+
+if [ -f ~/.path ]; then
+    while read line; do
+        _dot_prepend_to_path $line
+    done < ~/.path
+fi
