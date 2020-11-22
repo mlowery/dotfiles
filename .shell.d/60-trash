@@ -21,4 +21,9 @@ if _dot_is_osx; then
 EOD
     done
   }
+
+  function _trash {
+    _arguments -C '*: :_files'
+  }
+  compdef _trash trash
 fi
