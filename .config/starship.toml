@@ -115,7 +115,7 @@ disabled = true
 
 [custom.proxy]
 when = 'test -n "${HTTP_PROXY}"'
-command = "echo "
+command = "echo 🌀"
 style = "fg:purple"
 
 [custom.sk-dirty]
