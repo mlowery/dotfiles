@@ -19,10 +19,16 @@ disabled = true
 [dart]
 disabled = true
 
+[deno]
+disabled = true
+
 [directory]
 truncate_to_repo = false
 style = "blue"
 truncation_length = 50
+
+[docker_context]
+disabled = true
 
 [dotnet]
 disabled = true
@@ -33,7 +39,7 @@ disabled = true
 [elm]
 disabled = true
 
-[erland]
+[erlang]
 disabled = true
 
 [gcloud]
@@ -43,6 +49,10 @@ disabled = true
 # ansi 8 is dark gray
 # https://i.stack.imgur.com/KTSQa.png
 format = "[$branch](fg:8) "
+
+# too slow and I don't use it
+[git_status]
+disabled = true
 
 [golang]
 disabled = true
@@ -54,6 +64,9 @@ disabled = true
 disabled = true
 
 [julia]
+disabled = true
+
+[kotlin]
 disabled = true
 
 [kubernetes]
@@ -77,6 +90,9 @@ disabled = true
 [package]
 disabled = true
 
+[nodejs]
+disabled = true
+
 [ocaml]
 disabled = true
 
@@ -89,13 +105,22 @@ disabled = true
 [php]
 disabled = true
 
+[purescript]
+disabled = true
+
 [python]
+disabled = true
+
+[red]
 disabled = true
 
 [ruby]
 disabled = true
 
 [rust]
+disabled = true
+
+[scala]
 disabled = true
 
 [singularity]
@@ -107,10 +132,13 @@ disabled = true
 [terraform]
 disabled = true
 
-[zig]
+[vagrant]
 disabled = true
 
-[purescript]
+[vcsh]
+disabled = true
+
+[zig]
 disabled = true
 
 [custom.proxy]

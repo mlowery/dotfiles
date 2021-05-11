@@ -65,29 +65,23 @@
     #whitespace = space-before-tab,indent-with-non-tab,trailing-space
     editor = vim
 
-    # from https://github.com/so-fancy/diff-so-fancy
-    pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = delta
 
-[color]
-    # Use colors in Git commands that are capable of colored output when
-    # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
-    ui = auto
+[interactive]
+    diffFilter = delta --color-only
 
-# from https://github.com/so-fancy/diff-so-fancy
-[color "diff-highlight"]
-oldNormal    = "red bold"
-oldHighlight = "red bold 52"
-newNormal    = "green bold"
-newHighlight = "green bold 22"
-
-# from https://github.com/so-fancy/diff-so-fancy
-[color "diff"]
-meta =       "yellow"
-frag =       "magenta bold"
-commit =     "yellow bold"
-old =        "red bold"
-new =        "green bold"
-whitespace = "red reverse"
+[delta]
+    syntax-theme                  = "none"
+		minus-style                   = bold red
+    minus-non-emph-style          = bold red
+    minus-emph-style              = bold red 52
+    minus-empty-line-marker-style = normal "#3f0001"
+    zero-style                    = normal
+    plus-style                    = bold green
+    plus-non-emph-style           = bold green
+    plus-emph-style               = bold green 22
+    plus-empty-line-marker-style  = normal "#002800"
+    whitespace-error-style        = reverse purple
 
 [merge]
     # Include summaries of merged commits in newly created merge commit messages
@@ -95,9 +89,6 @@ whitespace = "red reverse"
 
 [commit]
   verbose = true
-
-[interactive]
-  diffFilter = diff-highlight
 
 [diff]
   compactionHeuristic = true
