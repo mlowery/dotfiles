@@ -2,8 +2,8 @@
 
 # https://www.iterm2.com/documentation-shell-integration.html
 # sourcing this file adds the iterm mark to the prompt
-[ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
+#[ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
 
 # see iTerm2 > Preferences > Profiles > General > badge
 # ref: https://iterm2.com/documentation-badges.html
-_dot_on_path iterm2_set_user_var && alias badge="iterm2_set_user_var badge"
+#_dot_on_path iterm2_set_user_var && alias badge="iterm2_set_user_var badge"
