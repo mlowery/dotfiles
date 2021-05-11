@@ -1,5 +1,5 @@
 if _dot_is_osx; then
-    if [[ -d $HOME/go-tools/bin ]]; then
-        _dot_prepend_to_path $HOME/go-tools/bin
+    if [[ -d $HOME/go/bin ]]; then
+        _dot_prepend_to_path $HOME/go/bin
     fi
 fi
