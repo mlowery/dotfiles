@@ -1,10 +1,11 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "editor.fontFamily": "'JetBrains Mono', Monaco, Menlo, 'Courier New', monospace",
-    "editor.fontSize": 13,
+    "editor.fontFamily": "'Ubuntu Mono', Monaco, Menlo, 'Courier New', monospace",
+    "editor.fontSize": 15,
     "files.associations": {
         "config": "yaml",
         ".supernova": "ini"
     },
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "workbench.startupEditor": "none"
 }
