@@ -114,6 +114,9 @@ disabled = true
 [red]
 disabled = true
 
+[rlang]
+disabled = true
+
 [ruby]
 disabled = true
 
