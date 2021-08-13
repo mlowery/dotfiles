@@ -46,6 +46,7 @@
     defer = stash push -a -m
     undefer = stash pop
     
+    wip = git add -A && git commit -m wip
 
 [pull]
     rebase = merges

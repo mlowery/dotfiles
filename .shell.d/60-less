@@ -1,1 +1,1 @@
-export LESS="-RFIX"
+export LESS="-RIX"

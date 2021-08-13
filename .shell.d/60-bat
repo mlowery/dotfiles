@@ -1,2 +1,2 @@
-export BAT_PAGER="less -RFIX"
+export BAT_PAGER="less -RIX"
 export BAT_STYLE="plain"
