@@ -4,7 +4,6 @@
     "editor.fontSize": 15,
     "files.associations": {
         "config": "yaml",
-        ".supernova": "ini"
     },
     "editor.minimap.enabled": false,
     "workbench.startupEditor": "none"

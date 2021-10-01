@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# setup in install.d/26-openstack
+# note: cannot just add ~/.venv/python-openstackclient/bin to the path as that will change python for everyone
+exec ~/.venv/python-openstackclient/bin/openstack "${@-}"

@@ -1,9 +1,9 @@
 _dot_get_os() {
-    python -mplatform
+    python3 -mplatform
 }
 
 _dot_is_osx() {
-    _dot_get_os | grep --quiet --ignore-case darwin
+    _dot_get_os | grep --quiet --ignore-case macos
 }
 
 _dot_is_ubuntu() {
