@@ -22,7 +22,7 @@ if _dot_is_osx; then
         # Upgrade any already-installed formulae.
         brew upgrade
 
-        for f in bash bat coreutils dep exa fd ffmpeg findutils gawk git git-crypt git-delta gnu-sed gnu-tar gnupg go graphviz grc grep hub jq kind krew kustomize less lnav make mercurial moreutils openssh ripgrep starship stern t-rec tree vim watch wget zsh; do
+        for f in bash bat coreutils dep exa fd ffmpeg findutils gawk git git-crypt git-delta gnu-sed gnu-tar gnupg go graphviz grc grep hub jq kind krew kustomize less lnav make minio/stable/mc mercurial moreutils openssh ripgrep starship stern t-rec tree vim watch wget zsh; do
             _dot_brew_install $f
         done
 
