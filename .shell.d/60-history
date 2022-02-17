@@ -1,0 +1,4 @@
+if _dot_is_zsh; then
+    export HISTSIZE=1000000
+    export SAVEHIST=1000000
+fi
