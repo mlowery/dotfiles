@@ -1996,21 +1996,29 @@
 			<true/>
 			<key>Selected Text Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.72799122333526611</real>
+				<real>0.0</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.73772752285003662</real>
+				<real>0.0</real>
 				<key>Red Component</key>
-				<real>0.72378784418106079</real>
+				<real>0.0</real>
 			</dict>
 			<key>Selection Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.19518557190895081</real>
+				<real>0.69411764705882351</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.17529888451099396</real>
+				<real>0.53725490196078429</real>
 				<key>Red Component</key>
-				<real>0.16332042217254639</real>
+				<real>0.37647058823529411</real>
 			</dict>
 			<key>Semantic History</key>
 			<dict>

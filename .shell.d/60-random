@@ -1,0 +1,5 @@
+
+randstring() {
+    len=${1:-32}
+    head /dev/urandom | tr -dc a-z0-9 | head -c $len
+}
