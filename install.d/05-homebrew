@@ -1,6 +1,10 @@
 if _dot_is_osx; then
     if _dot_on_path brew; then
 
+        echo "INFO: Setting permissions for HomeBrew; sudo prompt to follow"
+        sudo chown -R $(whoami) /usr/local/bin
+        chmod u+w /usr/local/bin
+
         _dot_brew_installed_list=$(brew list --formula)
 
         function _dot_brew_installed {
