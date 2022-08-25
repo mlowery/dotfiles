@@ -75,3 +75,4 @@ Typically the credit is in the script file itself, however here are some highlig
 * [Stack Overflow: iTerm 2: How to set keyboard shortcuts to jump to beginning/end of line?](https://stackoverflow.com/a/22312856)
 * [Stack Overflow: iTerm 2: How to set keyboard shortcuts to jump to beginning/end of line?](https://stackoverflow.com/a/29403520)
 * [Ask HN: What do you use to manage dotfiles?](https://news.ycombinator.com/item?id=11070797)
+
