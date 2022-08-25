@@ -83,6 +83,7 @@
     plus-emph-style               = bold green 22
     plus-empty-line-marker-style  = normal "#002800"
     whitespace-error-style        = reverse purple
+    #max-line-length = 10000
 
 [merge]
     # Include summaries of merged commits in newly created merge commit messages

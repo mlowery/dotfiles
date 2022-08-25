@@ -1,2 +1,10 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# https://apple.stackexchange.com/a/371984
+if type brew &>/dev/null; then
+  HOMEBREW_PREFIX=$(brew --prefix)
+  # gnubin; gnuman
+  for d in ${HOMEBREW_PREFIX}/opt/*/libexec/gnubin; do _dot_prepend_to_path $d; done
+  # I actually like that man grep gives the BSD grep man page
+  #for d in ${HOMEBREW_PREFIX}/opt/*/libexec/gnuman; do export MANPATH=$d:$MANPATH; done
+fi
