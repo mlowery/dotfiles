@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# setup in install.d/26-grafanalib
+# note: cannot just add ~/.venv/**/bin to path as that will change python for everyone
+exec ~/.venv/grafanalib/bin/generate-dashboard "${@-}"

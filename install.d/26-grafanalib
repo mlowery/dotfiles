@@ -1,0 +1,4 @@
+python3 -m venv ~/.venv/grafanalib
+source ~/.venv/grafanalib/bin/activate
+python3 -m pip install --upgrade grafanalib
+deactivate

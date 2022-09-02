@@ -4,16 +4,34 @@ disabled = true
 [battery]
 disabled = true
 
+[buf]
+disabled = true
+
+[bun]
+disabled = true
+
+[c]
+disabled = true
+
 [cmake]
 disabled = true
 
 [cmd_duration]
 format = "[$duration]($style) "
 
+[cobol]
+disabled = true
+
 [conda]
 disabled = true
 
+[container]
+disabled = true
+
 [crystal]
+disabled = true
+
+[daml]
 disabled = true
 
 [dart]
@@ -39,7 +57,13 @@ disabled = true
 [elm]
 disabled = true
 
+[env_var]
+disabled = true
+
 [erlang]
+disabled = true
+
+[fill]
 disabled = true
 
 [gcloud]
@@ -55,6 +79,9 @@ format = "[$branch](fg:8) "
 disabled = true
 
 [golang]
+disabled = true
+
+[haskell]
 disabled = true
 
 [helm]
@@ -87,9 +114,6 @@ disabled = true
 [nix_shell]
 disabled = true
 
-[package]
-disabled = true
-
 [nodejs]
 disabled = true
 
@@ -99,10 +123,16 @@ disabled = true
 [openstack]
 disabled = true
 
+[package]
+disabled = true
+
 [perl]
 disabled = true
 
 [php]
+disabled = true
+
+[pulumi]
 disabled = true
 
 [purescript]
@@ -111,10 +141,13 @@ disabled = true
 [python]
 disabled = true
 
-[red]
+[rlang]
 disabled = true
 
-[rlang]
+[raku]
+disabled = true
+
+[red]
 disabled = true
 
 [ruby]
@@ -129,6 +162,9 @@ disabled = true
 [singularity]
 disabled = true
 
+[spack]
+disabled = true
+
 [swift]
 disabled = true
 
@@ -136,6 +172,9 @@ disabled = true
 disabled = true
 
 [vagrant]
+disabled = true
+
+[vlang]
 disabled = true
 
 [vcsh]
