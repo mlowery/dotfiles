@@ -1,4 +1,5 @@
 python3 -m venv ~/.venv/python-openstackclient
 source ~/.venv/python-openstackclient/bin/activate
+python3 -m ensurepip --upgrade
 python3 -m pip install --upgrade python-openstackclient
 deactivate
