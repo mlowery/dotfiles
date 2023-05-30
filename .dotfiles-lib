@@ -46,7 +46,7 @@ _dot_clone_or_pull() {
 }
 
 _dot_shell() {
-    basename $(ps -p $$ -oargs=)
+    basename $(command ps -p $$ -oargs=)
 }
 
 _dot_is_zsh() {
