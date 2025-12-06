@@ -48,6 +48,9 @@
     
     wip = git add -A && git commit -m wip
 
+[push]
+    autoSetupRemote = true
+
 [pull]
     rebase = merges
 
@@ -73,7 +76,7 @@
 
 [delta]
     syntax-theme                  = "none"
-		minus-style                   = bold red
+    minus-style                   = bold red
     minus-non-emph-style          = bold red
     minus-emph-style              = bold red 52
     minus-empty-line-marker-style = normal "#3f0001"
@@ -88,12 +91,37 @@
 [merge]
     # Include summaries of merged commits in newly created merge commit messages
     log = true
+    conflictstyle = zdiff3
 
 [commit]
-  verbose = true
+    verbose = true
 
 [diff]
-  compactionHeuristic = true
+    algorithm = histogram
+    compactionHeuristic = true
+    colorMoved = default
+
+[init]
+    defaultBranch = main
+
+[rebase]
+    autosquash = true
+    autostash = true
+
+[rerere]
+    enabled = true
+
+[branch]
+    sort = -committerdate
+
+[transfer]
+    fsckobjects = true
+
+[fetch]
+    fsckobjects = true
+
+[receive]
+    fsckObjects = true
 
 [include]
-  path = ~/.gitconfig_extra
+    path = ~/.gitconfig_extra

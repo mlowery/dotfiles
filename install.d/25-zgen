@@ -5,7 +5,6 @@ source "${HOME}/.zgen/zgen.zsh"
 zgen oh-my-zsh lib/history.zsh
 
 zgen oh-my-zsh plugins/colored-man-pages
-zgen oh-my-zsh plugins/docker
 zgen oh-my-zsh plugins/gitfast
 
 zgen load zsh-users/zsh-syntax-highlighting

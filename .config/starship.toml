@@ -99,7 +99,7 @@ disabled = true
 [kubernetes]
 disabled = false
 format = '[$symbol$context(:$namespace)]($style) '
-style = "white dimmed"
+style = "cyan dimmed"
 symbol = ""
 
 [lua]
@@ -191,4 +191,8 @@ style = "fg:purple"
 [custom.sk-dirty]
 when = 'sk-dirty -q'
 command = "echo 💾"
+
+[custom.star-mode]
+when = 'test -n "${_STAR_MODE}"'
+command = "echo ⭐️"
 
