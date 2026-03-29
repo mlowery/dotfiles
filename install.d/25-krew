@@ -1,1 +1,1 @@
-/usr/local/bin/kubectl krew install who-can
+kubectl krew install who-can
