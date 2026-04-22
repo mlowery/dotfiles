@@ -1,2 +1,0 @@
-# see bin/openstack instead
-# see ~/.config/openstack/clouds.yaml too and use `openstack --os-cloud=<name>...` to switch
