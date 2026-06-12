@@ -186,7 +186,6 @@ disabled = true
 [custom.proxy]
 when = 'test -n "${HTTP_PROXY}"'
 command = "echo 🌀"
-style = "fg:purple"
 
 [custom.sk-dirty]
 when = 'sk-dirty -q'
@@ -196,3 +195,12 @@ command = "echo 💾"
 when = 'test -n "${_STAR_MODE}"'
 command = "echo ⭐️"
 
+[username]
+format = "[$user]($style)@"
+
+[hostname]
+format = "[$hostname]($style) "
+
+[custom.ssh]
+when = 'test -n "${SSH_CONNECTION}"'
+command = "echo 🌏"

@@ -1,0 +1,39 @@
+function scratch() {
+    local name="$1"
+    if [[ -z "$name" ]]; then
+        echo "Usage: scratch <name>"
+        return 1
+    fi
+
+    local year=$(date +%Y)
+    local month=$(date +%m)
+    local day=$(date +%d)
+    local note_root="$HOME/src/personal/notes"
+    local target_dir="$note_root/$year/$month/$day"
+    local target_path="$target_dir/$name"
+
+    # 1. If target already exists, just cd into it
+    if [[ -e "$target_path" ]]; then
+        cd "$target_path"
+        return
+    fi
+
+    # 2. Search for an existing directory named $name anywhere under ~/src/personal/notes
+    # Ensure note_root exists so find doesn't fail
+    mkdir -p "$note_root"
+    local existing=$(find "$note_root" -type d -name "$name" -print -quit 2>/dev/null)
+
+    # 3. Create the target parent directory
+    mkdir -p "$target_dir"
+
+    if [[ -n "$existing" ]]; then
+        # 4. Link to existing directory
+        ln -s "$existing" "$target_path"
+    else
+        # 5. Create new directory
+        mkdir -p "$target_path"
+    fi
+
+    # 6. Enter the directory
+    cd "$target_path"
+}
