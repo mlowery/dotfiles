@@ -1,10 +1,8 @@
 #!/usr/bin/env zsh
+# Pull, run install.d (Homebrew, which provides stow), then link the repo
+# into ~ with stow. --link-only skips install.d.
 
-cd $(dirname $0)
-
-if [[ $1 == --rsync-only ]]; then
-    _DOT_RSYNC_ONLY=true
-fi
+cd ${0:A:h} || exit 1
 
 source .dotfiles-lib
 
@@ -15,32 +13,17 @@ fi
 
 git pull origin master
 
-function _dot_install() {
+if [[ $1 != --link-only ]]; then
+    for file in install.d/*(N); do
+        [[ -x $file ]] && source $file
+    done
+fi
 
-    rsync --exclude ".git/" --exclude ".gitignore" --exclude ".DS_Store" \
-          --exclude "install.sh" --exclude "install.d" --exclude "Brewfile"  --exclude "README.md" \
-          --exclude "LICENSE-MIT.txt" --exclude ".idea" \
-          -avK --no-perms --executability . ~
+if ! _dot_on_path stow; then
+    echo "ERROR: stow is required (brew install stow)"
+    exit 1
+fi
 
-    if [[ $_DOT_RSYNC_ONLY ]]; then
-        exit 0
-    fi
-
-    local install_dir=install.d
-    if [[ -d $install_dir ]]; then
-        for file in $install_dir/*; do
-            if [[ -x $file ]]; then
-                source $file
-            fi
-        done
-    fi
-    unset install_dir
-    unset file
-
-}
-
-_dot_install
-
-unset _dot_install
-
-cd -
+# options (target ~, no folding) come from .stowrc; --restow also removes
+# links to files deleted from the repo
+stow --restow .

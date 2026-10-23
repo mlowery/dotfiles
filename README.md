@@ -1,6 +1,27 @@
 # dotfiles
 
-These are my dotfiles for zsh on macOS. Originally a fork of [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles), it's a little different now. It's still rsync-based but bootstrapping is done via `install.sh` which rsyncs then runs through the `install.d` directory, installing various tools. Also, `~/.zshrc` sources files in `~/.shell.d`.
+These are my dotfiles for zsh on macOS. Originally a fork of [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles), it's a little different now. The repo mirrors `~`, and [GNU Stow](https://www.gnu.org/software/stow/) symlinks each file into place, so editing `~/.zshrc` edits the repo. `install.sh` pulls, runs `install.d` (Homebrew and the `Brewfile`), then links with `stow --restow .`; `./install.sh --link-only` skips `install.d`. `~/.zshrc` sources the files in `~/.shell.d`.
+
+## Stow cheat sheet
+
+Run these from the repo root. `.stowrc` supplies `--target=~ --no-folding`, and `.stow-local-ignore` lists repo files that are never linked (`install.sh`, `README.md`, ...).
+
+`--no-folding` means stow never symlinks a whole directory: `~/.config/ghostty` stays a real directory holding one link per tracked file, so files an app writes there stay local instead of landing in the repo.
+
+| Task | Command |
+|---|---|
+| Preview any change (touches nothing) | add `-n -v`, e.g. `stow -n -v --restow .` |
+| Relink everything; remove links to files deleted from the repo | `stow --restow .` |
+| Start tracking a file | `mkdir -p .config/foo && mv ~/.config/foo/bar .config/foo/ && stow --restow .` |
+| Start tracking a directory | `mkdir -p .config && mv ~/.config/foo .config/ && stow --restow .` (links each file; the directory itself stays real) |
+| Take over files that already exist in `~` (e.g. a new machine) | `stow --adopt .` then `git diff` to review: adopt moves the `~` copy into the repo, overwriting the repo's version. `git checkout -- <file>` keeps the repo's version instead. |
+| Stop tracking a file but keep a local copy | `cp --remove-destination "$(realpath ~/.foo)" ~/.foo && git rm .foo` |
+| Stop tracking a file and delete it | `git rm .foo && stow --restow .` |
+| Remove every link (back out of stow) | `stow -D .` |
+| See what changed vs. the repo | `git status` / `git diff`: the files in `~` are the repo's files |
+| Find broken links under `~` that point into the repo | `find ~ -path ~/Library -prune -o -xtype l -lname '*src/dotfiles*' -print` |
+
+Stow refuses to overwrite a regular file or a symlink it didn't create; the error names the file. Move it aside (or `--adopt` it) and rerun. Some apps save by writing a new file and renaming it over the old one, which replaces the link with a plain file; `git status` then stops showing that app's changes, and `stow --adopt .` relinks it.
 
 ## Installation: MacOS
 

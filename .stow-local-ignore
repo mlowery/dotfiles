@@ -1,0 +1,16 @@
+# Perl regexes for repo files that must not be linked into ~. This list
+# replaces stow's built-in defaults, so VCS files are listed here too.
+# A pattern with a slash matches the path from the repo root; without one,
+# it matches a file or directory name at any depth.
+\.git
+\.DS_Store
+\.idea
+^/README.*
+^/LICENSE.*
+^/install\.sh
+^/install\.d
+^/Brewfile
+^/\.stowrc
+^/\.stow-local-ignore
+# only install.sh and .shell.d/00-lib (a symlink to it inside the repo) use it
+^/\.dotfiles-lib
