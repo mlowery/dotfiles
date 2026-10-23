@@ -18,7 +18,7 @@ git pull origin master
 function _dot_install() {
 
     rsync --exclude ".git/" --exclude ".gitignore" --exclude ".DS_Store" \
-          --exclude "install.sh" --exclude "install.d"  --exclude "README.md" \
+          --exclude "install.sh" --exclude "install.d" --exclude "Brewfile"  --exclude "README.md" \
           --exclude "LICENSE-MIT.txt" --exclude ".idea" \
           -avK --no-perms --executability . ~
 
