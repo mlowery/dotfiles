@@ -1,0 +1,12 @@
+command = direct:/opt/homebrew/bin/zsh
+theme = light:Monokai Pro Light Custom,dark:Monokai Pro Custom
+window-theme = system
+font-family = Ubuntu Mono
+font-size = 15
+adjust-cell-width = 1
+cursor-style = block
+shell-integration-features = no-cursor
+
+# Undo / Redo
+keybind = super+z=text:\x1f
+keybind = super+shift+z=text:\x18\x1fu

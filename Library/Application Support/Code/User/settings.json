@@ -1,0 +1,8 @@
+{
+    "workbench.colorTheme": "Light Modern",
+    "editor.minimap.enabled": false,
+    "explorer.autoReveal": true,
+    "[plaintext]": {
+        "editor.wordWrap": "on"
+    }
+}

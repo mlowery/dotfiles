@@ -9,8 +9,8 @@ These are notes specific to me but perhaps are of use for anyone.
 1. Install git (from Xcode). (It will be upgraded later via `install.sh`.)
 1. Install brew.
 1. Clone dotfiles.
-1. Install iTerm2.
-1. Install source code pro font from Google.
+1. Install Ghostty. (Config: `Library/Application Support/com.mitchellh.ghostty/config.ghostty`, themes: `.config/ghostty/themes`.)
+1. Install the Ubuntu Mono font from Google.
 1. Remap caps lock key to control.
 1. Set up `pre-commit` hook to check for no-no strings before commits:
 
@@ -32,35 +32,33 @@ search s1
 search s2
 ```
 
-## iTerm2 Profile
+## Ghostty
 
-All of the following can be imported from the `.iterm` directory but are additionally documented here.
+The config lives in `Library/Application Support/com.mitchellh.ghostty/config.ghostty` and the custom themes it references live in `.config/ghostty/themes`. Both are installed by `install.sh` along with everything else. Ghostty reloads its config with ⇧⌘,.
 
 ### Shell
 
-General > Command > Command: `/opt/local/bin/zsh --login` (from brew)
+`command = direct:/opt/homebrew/bin/zsh` (from brew)
 
 ### Colors
 
-Colors > Color Presets... > Snazzy (from https://github.com/sindresorhus/iterm2-snazzy)
+`theme = light:Monokai Pro Light Custom,dark:Monokai Pro Custom` follows the macOS light/dark appearance.
 
 ### Keys
 
-The following key mappings convert MacOS-style keys to emacs keys (which are in turn configured with zsh's `bindkey` builtin).
+The following key mappings convert MacOS-style keys to emacs keys (which are in turn configured with zsh's `bindkey` builtin in `.shell.d/05-keys`). Rows marked "default" are Ghostty's built-in macOS bindings and need no config (see `ghostty +list-keybinds --default`).
 
-MacOS Keys|Behavior|emacs Keys|iTerm|Extra Steps
+MacOS Keys|Behavior|emacs Keys|Ghostty|Extra Steps
 ---|---|---|---|---
-⌘z|Undo|`^_`|Send Hex Codes: `0x1f`|
-⇧⌘Z|Redo|`^X^_`|Send Hex Codes: `0x18 0x1f`|`bindkey "^X^_" redo`
-⌘←Delete|Delete to beginning of line|`^X DEL`|Send Hex Codes: `0x18 0x7f`|`bindkey "^X\\x7f" backward-kill-line`
-⌘fn←Delete or ⌘Delete→|Delete to end of line|`^K`|Send Hex Codes: `0x0b`
-⌥←Delete|Delete word left|?|Send Hex Codes: `0x1b 0x08`|
-⌥fn←Delete or ⌥Delete→|Delete word right|?|Send Hex Codes: `0x01b 0x64`|
-⌘←|Move to beginning of line|?|Send Hex Codes: `0x01`|
-⌘→|Move to end of line|?|Send Hex Codes: `0x05`|
-⌥←|Move word left|?|Send Hex Codes: `0x1b 0x62`|
-⌥→|Move word right|?|Send Hex Codes: `0x1b 0x66`|
-fn←Delete or Delete→|Delete character right|`^D`|Send Hex Codes: `0x04`|
+⌘z|Undo|`^_`|`keybind = super+z=text:\x1f`|
+⇧⌘Z|Redo|`^X^_u`|`keybind = super+shift+z=text:\x18\x1fu`|`bindkey '\x18\x1fu' redo`
+⌘←Delete|Delete to beginning of line|`^U`|default: `super+backspace=text:\x15`|`bindkey '^U' backward-kill-line`
+⌘fn←Delete or ⌘Delete→|Delete to end of line|`^[[3;9~`|default (no keybind needed)|`bindkey '^[[3;9~' kill-line`
+⌥fn←Delete or ⌥Delete→|Delete word right|`^[[3;3~`|default (no keybind needed)|`bindkey '^[[3;3~' kill-word`
+⌘←|Move to beginning of line|`^A`|default: `super+arrow_left=text:\x01`|
+⌘→|Move to end of line|`^E`|default: `super+arrow_right=text:\x05`|
+⌥←|Move word left|`M-b`|default: `alt+arrow_left=esc:b`|
+⌥→|Move word right|`M-f`|default: `alt+arrow_right=esc:f`|
 
 ## Credits
 

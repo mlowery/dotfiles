@@ -33,13 +33,20 @@ if _dot_is_zsh; then
 
     # end copied from https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/key-bindings.zsh
 
-    # https://stackoverflow.com/a/32340345
-    # ⌘+←Delete to Send Hex Codes:
-    # 0x18 0x7f
-    bindkey "^X\\x7f" backward-kill-line
+    # Ghostty sends ^U for ⌘←Delete (default super+backspace=text:\x15);
+    # zsh's emacs default for ^U is kill-whole-line, but macOS deletes to
+    # beginning of line
+    bindkey '^U' backward-kill-line
+
+    # Ghostty sends xterm-style modified Delete→ (fn←Delete) sequences
+    # ⌥Delete→: delete word right
+    bindkey '^[[3;3~' kill-word
+    # ⌘Delete→: delete to end of line
+    bindkey '^[[3;9~' kill-line
     # https://stackoverflow.com/a/22312856
 
     # https://stackoverflow.com/a/29403520
-    bindkey "^X^_" redo
+    # Ghostty: keybind = super+shift+z=text:\x18\x1fu
+    bindkey '\x18\x1fu' redo
 
 fi
