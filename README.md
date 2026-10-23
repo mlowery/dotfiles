@@ -69,9 +69,6 @@ Typically the credit is in the script file itself, however here are some highlig
 * [cowboy/dotfiles](https://github.com/cowboy/dotfiles)
 * [holman/dotfiles](https://github.com/holman/dotfiles)
 * [robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
-* [Stack Overflow: iTerm2: delete line?](https://stackoverflow.com/a/32340345)
-* [Stack Overflow: iTerm 2: How to set keyboard shortcuts to jump to beginning/end of line?](https://stackoverflow.com/a/22312856)
-* [Stack Overflow: iTerm 2: How to set keyboard shortcuts to jump to beginning/end of line?](https://stackoverflow.com/a/29403520)
 * [Ask HN: What do you use to manage dotfiles?](https://news.ycombinator.com/item?id=11070797)
 
 

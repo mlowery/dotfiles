@@ -1,25 +1,9 @@
-_dot_get_os() {
-    python3 -mplatform
-}
-
 _dot_is_osx() {
-    _dot_get_os | grep --quiet --ignore-case macos
-}
-
-_dot_is_ubuntu() {
-    _dot_get_os | grep --quiet --ignore-case ubuntu
-}
-
-_dot_is_redhat() {
-    _dot_get_os | grep --quiet --ignore-case redhat
-}
-
-_dot_is_centos() {
-    _dot_get_os | grep --quiet --ignore-case centos
+    [[ $OSTYPE == darwin* ]]
 }
 
 _dot_is_linux() {
-    _dot_get_os | grep --quiet --ignore-case linux
+    [[ $OSTYPE == linux* ]]
 }
 
 _dot_on_path() {
@@ -45,10 +29,6 @@ _dot_clone_or_pull() {
     fi
 }
 
-_dot_shell() {
-    basename $(command ps -p $$ -oargs=)
-}
-
 _dot_is_zsh() {
-    [[ $(_dot_shell) == zsh ]]
+    [[ -n $ZSH_VERSION ]]
 }

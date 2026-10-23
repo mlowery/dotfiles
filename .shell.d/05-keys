@@ -43,9 +43,7 @@ if _dot_is_zsh; then
     bindkey '^[[3;3~' kill-word
     # ⌘Delete→: delete to end of line
     bindkey '^[[3;9~' kill-line
-    # https://stackoverflow.com/a/22312856
 
-    # https://stackoverflow.com/a/29403520
     # Ghostty: keybind = super+shift+z=text:\x18\x1fu
     bindkey '\x18\x1fu' redo
 
