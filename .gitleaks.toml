@@ -1,0 +1,17 @@
+# Used by .githooks/pre-push (gitleaks reads .gitleaks.toml from the repo root)
+title = "dotfiles"
+
+# keep gitleaks' built-in secret rules (API keys, tokens, private keys, ...)
+[extend]
+useDefault = true
+
+# strings that are private to me rather than secret
+[[rules]]
+id = "private-strings"
+description = "Employer names and work-machine paths"
+regex = '''(?i)(ebay|/Users/mlowery\b)'''
+keywords = ["ebay", "mlowery"]
+
+[[allowlists]]
+description = "this file defines the patterns above"
+paths = ['''^\.gitleaks\.toml$''']

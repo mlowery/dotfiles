@@ -23,6 +23,29 @@ Run these from the repo root. `.stowrc` supplies `--target=~ --no-folding`, and 
 
 Stow refuses to overwrite a regular file or a symlink it didn't create; the error names the file. Move it aside (or `--adopt` it) and rerun. Some apps save by writing a new file and renaming it over the old one, which replaces the link with a plain file; `git status` then stops showing that app's changes, and `stow --adopt .` relinks it.
 
+## Pre-push checks
+
+`.githooks/pre-push` blocks `git push` when the commits being pushed:
+
+- contain a secret (gitleaks' built-in rules: API keys, tokens, private keys, ...) or a private string from the `private-strings` rule in `.gitleaks.toml` (employer names, work-machine paths), or
+- were authored or committed with an email other than `user.email`.
+
+The git config also sets `user.useConfigOnly`, so git refuses to commit without a configured email instead of inventing one like `me@laptop.local`.
+
+Setup, once per clone (`install.sh` does both):
+
+1. `brew install gitleaks` (it's in the `Brewfile`)
+2. `git config core.hooksPath .githooks` (a repo-local setting; other repos are unaffected)
+
+| Task | Command |
+|---|---|
+| Scan the working tree | `gitleaks dir .` |
+| Scan all history | `gitleaks git .` |
+| Run the hook without pushing | `echo "refs/heads/master $(git rev-parse HEAD) refs/heads/master $(git rev-parse origin/master)" \| .githooks/pre-push` |
+| Add a private string | extend `regex` (and `keywords`) of the `private-strings` rule in `.gitleaks.toml` |
+| Accept a false positive | add a `gitleaks:allow` comment on that line, or put the finding's fingerprint in `.gitleaksignore` |
+| Skip the checks once (avoid) | `git push --no-verify` |
+
 ## Installation: MacOS
 
 These are notes specific to me but perhaps are of use for anyone.

@@ -10,6 +10,8 @@
 ^/install\.sh
 ^/install\.d
 ^/Brewfile
+^/\.githooks
+^/\.gitleaks\.toml
 ^/\.stowrc
 ^/\.stow-local-ignore
 # only install.sh and .shell.d/00-lib (a symlink to it inside the repo) use it

@@ -13,6 +13,9 @@ fi
 
 git pull origin master
 
+# pre-push secret/identity checks (see README)
+git config core.hooksPath .githooks
+
 if [[ $1 != --link-only ]]; then
     for file in install.d/*(N); do
         [[ -x $file ]] && source $file
