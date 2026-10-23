@@ -1,6 +1,6 @@
 # dotfiles
 
-These are my dotfiles. It is collection of scripts, almost all of which were written by people other than myself. Originally a fork of [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles), it's a little different now. It's still rsync-based but bootstrapping is done via `install.sh` which rsyncs then runs through the `install.d` directory, installing various tools. Also, `~/.zshrc` sources files in `~/.shell.d`.
+These are my dotfiles for zsh on macOS. Originally a fork of [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles), it's a little different now. It's still rsync-based but bootstrapping is done via `install.sh` which rsyncs then runs through the `install.d` directory, installing various tools. Also, `~/.zshrc` sources files in `~/.shell.d`.
 
 ## Installation: MacOS
 
@@ -12,25 +12,6 @@ These are notes specific to me but perhaps are of use for anyone.
 1. Install Ghostty. (Config and themes: `.config/ghostty`.)
 1. Install the Ubuntu Mono font from Google.
 1. Remap caps lock key to control.
-1. Set up `pre-commit` hook to check for no-no strings before commits:
-
-```bash
-#!/usr/bin/env bash
-
-set -euo pipefail
-
-fatal() { printf "%s\n" "$*" >&2; exit 1; }
-
-search() {
-	local s=${1?"search string is required"}
-	if rg -i $s; then
-		fatal "One or more files contain string \"$s\""
-	fi
-}
-
-search s1
-search s2
-```
 
 ## Ghostty
 
@@ -65,10 +46,4 @@ MacOS Keys|Behavior|emacs Keys|Ghostty|Extra Steps
 Typically the credit is in the script file itself, however here are some highlights:
 
 * [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
-* [Bash-it/bash-it](https://github.com/Bash-it/bash-it)
-* [cowboy/dotfiles](https://github.com/cowboy/dotfiles)
-* [holman/dotfiles](https://github.com/holman/dotfiles)
 * [robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
-* [Ask HN: What do you use to manage dotfiles?](https://news.ycombinator.com/item?id=11070797)
-
-

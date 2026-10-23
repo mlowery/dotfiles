@@ -1,4 +1,0 @@
-# Use Git’s colored diff
-function diff() {
-    git diff --no-index "$@"
-}
