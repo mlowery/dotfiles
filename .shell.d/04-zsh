@@ -1,4 +1,9 @@
-# note: compinit handled by zgen
+# extra completions from brew's zsh-completions; compinit must run after
+# every fpath change (02-homebrew adds brew's site-functions)
+if [[ -d $HOMEBREW_PREFIX/share/zsh-completions ]]; then
+    fpath=($HOMEBREW_PREFIX/share/zsh-completions $fpath)
+fi
+autoload -Uz compinit && compinit
 
 setopt autopushd
 

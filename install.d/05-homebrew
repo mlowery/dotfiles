@@ -8,6 +8,10 @@ if _dot_is_osx; then
         brew bundle install --no-upgrade --file=Brewfile
         brew upgrade
 
+        # compinit rejects group-writable completion dirs (per the
+        # zsh-completions caveat)
+        chmod go-w "$(brew --prefix)/share"
+
         # Remove outdated versions from the cellar.
         brew cleanup
     else

@@ -1,15 +1,13 @@
-if filereadable(expand("~/.vim/autoload/pathogen.vim"))
-    execute pathogen#infect()
-endif
+" Vim's own defaults (incremental search, syntax highlighting, filetype
+" detection, ...); not loaded automatically once a .vimrc exists
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
 
+" defaults.vim does this only when it detects a color terminal; be explicit
 syntax on
-filetype plugin indent on
 
-" from spf13
-if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-    let g:solarized_termcolors=256
-    let g:solarized_termtrans=1
-    let g:solarized_contrast="normal"
-    let g:solarized_visibility="normal"
-    color solarized
-endif
+" defaults.vim enables the mouse; keep the terminal's own text selection
+set mouse=
+
+" no colorscheme: use the terminal's colors, which follow Ghostty's
+" light/dark theme

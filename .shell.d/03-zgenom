@@ -1,7 +1,0 @@
-# set explicitly: zgenom otherwise reuses ~/.zgen when it exists
-ZGEN_DIR=~/.zgenom/sources
-if [ -f ~/.zgenom/zgenom.zsh ]; then
-    source ~/.zgenom/zgenom.zsh
-    # load the plugins saved by install.d/25-zgenom
-    zgenom init
-fi

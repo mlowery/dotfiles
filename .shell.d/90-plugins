@@ -1,0 +1,9 @@
+# zsh plugins from Homebrew (see Brewfile)
+for f in \
+    zsh-autosuggestions/zsh-autosuggestions.zsh \
+    zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+; do
+    # syntax highlighting goes last, after other widgets are defined
+    [[ -f $HOMEBREW_PREFIX/share/$f ]] && source $HOMEBREW_PREFIX/share/$f
+done
+unset f
