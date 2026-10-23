@@ -1,6 +1,6 @@
 # dotfiles
 
-These are my dotfiles for zsh on macOS. Originally a fork of [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles), it's a little different now. The repo mirrors `~`, and [GNU Stow](https://www.gnu.org/software/stow/) symlinks each file into place, so editing `~/.zshrc` edits the repo. `install.sh` pulls, runs `install.d` (Homebrew and the `Brewfile`), then links with `stow --restow .`; `./install.sh --link-only` skips `install.d`. `~/.zshrc` sources the files in `~/.shell.d`.
+These are my dotfiles for zsh on macOS. The repo mirrors `~`, and [GNU Stow](https://www.gnu.org/software/stow/) symlinks each file into place, so editing `~/.zshrc` edits the repo. `install.sh` pulls, runs `install.d` (Homebrew and the `Brewfile`), then links with `stow --restow .`; `./install.sh --link-only` skips `install.d`. `~/.zshrc` sources the files in `~/.shell.d`.
 
 ## Stow cheat sheet
 
@@ -66,5 +66,4 @@ MacOS Keys|Behavior|emacs Keys|Ghostty|Extra Steps
 
 Typically the credit is in the script file itself, however here are some highlights:
 
-* [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
 * [robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
