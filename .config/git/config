@@ -2,15 +2,13 @@
     # View the current working tree status using the short format
     s = status -s
     remotes = remote -v
-    # discard working tree changes to the given files
-    unchange = restore --
     ls = log --pretty=format:"%C(yellow)%h\\ %C(cyan)%ad%C(red\\ bold)%d\\ %Creset%s%C(blue\\ bold)\\ [%cn]"
     ll = log --pretty=format:"%C(yellow)%h\\ %C(cyan)%ad%C(red\\ bold)%d\\ %Creset%s%C(blue\\ bold)\\ [%cn]" --name-status
-    # add tracking to current branch (e.g. git track origin/master)
-    track = branch --set-upstream-to
 
 [push]
     autoSetupRemote = true
+    # push annotated tags reachable from the pushed commits
+    followTags = true
 
 [pull]
     rebase = merges
@@ -21,18 +19,9 @@
 [interactive]
     diffFilter = delta --color-only
 
-[delta]
-    syntax-theme                  = "none"
-    minus-style                   = bold red
-    minus-non-emph-style          = bold red
-    minus-emph-style              = bold red 52
-    minus-empty-line-marker-style = normal "#3f0001"
-    zero-style                    = normal
-    plus-style                    = bold green
-    plus-non-emph-style           = bold green
-    plus-emph-style               = bold green 22
-    plus-empty-line-marker-style  = normal "#002800"
-    whitespace-error-style        = reverse purple
+[fetch]
+    # delete local refs to branches removed on the remote
+    prune = true
 
 [merge]
     # Include summaries of merged commits in newly created merge commit messages
@@ -52,12 +41,24 @@
 [rebase]
     autosquash = true
     autostash = true
+    # move branches stacked on the rebased one along with it
+    updateRefs = true
 
 [rerere]
     enabled = true
+    # stage resolutions that rerere reapplies
+    autoupdate = true
 
 [branch]
     sort = -committerdate
+
+[tag]
+    # v1.10 after v1.9
+    sort = version:refname
+
+[help]
+    # offer to run the command you meant on a typo
+    autocorrect = prompt
 
 [transfer]
     fsckobjects = true
