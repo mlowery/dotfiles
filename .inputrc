@@ -1,7 +1,7 @@
-# Make Tab autocomplete regardless of filename case
+# Tab completion is case-sensitive
 set completion-ignore-case off
 
-# List all matches in case multiple possible completions are possible
+# Ring the bell on an ambiguous completion; list matches on the second Tab
 set show-all-if-ambiguous off
 
 # Immediately add a trailing slash when autocompleting symlinks to directories
@@ -36,7 +36,7 @@ set input-meta on
 set output-meta on
 set convert-meta off
 
-# Use Alt/Meta + Delete to delete the preceding word
+# Use Alt/Meta + Delete→ (fn←Delete) to delete the next word
 "\e[3;3~": kill-word
 
 # Alt arrow jumps by word

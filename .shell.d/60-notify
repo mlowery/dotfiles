@@ -3,6 +3,11 @@ if _dot_is_osx; then
         local msg="${1?msg is required}"
         local title="${2-}"
         local subtitle="${3-}"
-        osascript -e "display notification \"$1\" with title \"$2\" subtitle \"$3\" sound name \"Glass\""
+        # pass values as arguments so quotes in them can't break the script
+        osascript \
+            -e 'on run argv' \
+            -e 'display notification (item 1 of argv) with title (item 2 of argv) subtitle (item 3 of argv) sound name "Glass"' \
+            -e 'end run' \
+            "$msg" "$title" "$subtitle"
     }
 fi

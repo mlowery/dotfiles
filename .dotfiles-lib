@@ -14,7 +14,8 @@ _dot_on_path() {
 _dot_prepend_to_path() {
     local dir="${1?dir is required}"
     if [[ -d $dir ]]; then
-        export PATH="$dir:$PATH"
+        # assign the array, not $PATH, so typeset -U path drops duplicates
+        path=("$dir" $path)
     fi
 }
 
@@ -27,8 +28,4 @@ _dot_clone_or_pull() {
     else
         (cd $dir && git pull)
     fi
-}
-
-_dot_is_zsh() {
-    [[ -n $ZSH_VERSION ]]
 }

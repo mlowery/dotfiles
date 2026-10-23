@@ -1,5 +1,1 @@
-if _dot_is_osx; then
-    if [[ -d $HOME/.cargo/bin ]]; then
-        _dot_prepend_to_path $HOME/.cargo/bin
-    fi
-fi
+_dot_prepend_to_path $HOME/.cargo/bin

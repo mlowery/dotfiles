@@ -5,7 +5,8 @@ font-family = Ubuntu Mono
 font-size = 15
 adjust-cell-width = 1
 cursor-style = block
-shell-integration-features = no-cursor
+# ssh-env: use xterm-256color on remote hosts that lack xterm-ghostty terminfo
+shell-integration-features = no-cursor,ssh-env
 
 # Undo / Redo
 keybind = super+z=text:\x1f

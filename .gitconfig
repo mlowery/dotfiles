@@ -46,7 +46,7 @@
     defer = stash push -a -m
     undefer = stash pop
     
-    wip = git add -A && git commit -m wip
+    wip = !git add -A && git commit -m wip
 
 [push]
     autoSetupRemote = true
@@ -98,7 +98,6 @@
 
 [diff]
     algorithm = histogram
-    compactionHeuristic = true
     colorMoved = default
 
 [init]
