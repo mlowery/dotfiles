@@ -5,6 +5,12 @@
     ls = log --pretty=format:"%C(yellow)%h\\ %C(cyan)%ad%C(red\\ bold)%d\\ %Creset%s%C(blue\\ bold)\\ [%cn]"
     ll = log --pretty=format:"%C(yellow)%h\\ %C(cyan)%ad%C(red\\ bold)%d\\ %Creset%s%C(blue\\ bold)\\ [%cn]" --name-status
 
+[user]
+    name = Mat Lowery
+    email = mat@matlowery.com
+    # refuse to commit rather than guess an address like user@host.local
+    useConfigOnly = true
+
 [push]
     autoSetupRemote = true
     # push annotated tags reachable from the pushed commits
