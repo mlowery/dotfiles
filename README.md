@@ -61,9 +61,3 @@ MacOS Keys|Behavior|emacs Keys|Ghostty|Extra Steps
 ⌘→|Move to end of line|`^E`|default: `super+arrow_right=text:\x05`|
 ⌥←|Move word left|`M-b`|default: `alt+arrow_left=esc:b`|
 ⌥→|Move word right|`M-f`|default: `alt+arrow_right=esc:f`|
-
-## Credits
-
-Typically the credit is in the script file itself, however here are some highlights:
-
-* [robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
