@@ -2,13 +2,8 @@ _dot_is_osx() {
     [[ $OSTYPE == darwin* ]]
 }
 
-_dot_is_linux() {
-    [[ $OSTYPE == linux* ]]
-}
-
 _dot_on_path() {
-    local cmd="${1?cmd is required}"
-    which $cmd &> /dev/null
+    (( $+commands[${1?cmd is required}] ))
 }
 
 _dot_prepend_to_path() {
@@ -16,16 +11,5 @@ _dot_prepend_to_path() {
     if [[ -d $dir ]]; then
         # assign the array, not $PATH, so typeset -U path drops duplicates
         path=("$dir" $path)
-    fi
-}
-
-_dot_clone_or_pull() {
-    local repo="${1?repo is required}"
-    local dir="${2?dir is required}"
-
-    if [[ ! -d $dir/.git ]]; then
-        git clone $repo $dir
-    else
-        (cd $dir && git pull)
     fi
 }

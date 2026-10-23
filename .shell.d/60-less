@@ -1,1 +1,3 @@
-export LESS="-RIX"
+# -X: don't clear the screen on exit (also applies to man and bat)
+# --use-color -Dd+r -Du+g: color man pages' bold (red) and underlined (green) text
+export LESS="-RIX --use-color -Dd+r -Du+g"

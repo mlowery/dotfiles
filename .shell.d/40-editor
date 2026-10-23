@@ -1,4 +1,2 @@
-if _dot_on_path vim; then
-    # Make vim the default editor
-    export EDITOR="vim"
-fi
+# Make vim the default editor (git uses it too)
+export EDITOR="vim"

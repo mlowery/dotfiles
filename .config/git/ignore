@@ -1,0 +1,6 @@
+# macOS Finder metadata
+.DS_Store
+# editor and tool state
+.idea/
+.vscode/
+.claude/

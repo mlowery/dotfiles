@@ -1,17 +1,13 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
-# brew shellenv prepends to $PATH as a string; reassign to drop duplicates
-path=($path)
+# /etc/paths.d/homebrew adds /opt/homebrew/bin after the system dirs (via
+# path_helper in login shells); put Homebrew first instead. This replaces
+# `eval "$(brew shellenv)"`, which costs ~30ms per shell.
+export HOMEBREW_PREFIX=/opt/homebrew
+path=($HOMEBREW_PREFIX/bin $HOMEBREW_PREFIX/sbin $path)
+fpath=($HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
 
-# https://apple.stackexchange.com/a/371984
-if type brew &>/dev/null; then
-  HOMEBREW_PREFIX=$(brew --prefix)
-  # gnubin; gnuman
-  # skip libtool: its gnubin shadows Apple's libtool, which Xcode builds need
-  for d in ${HOMEBREW_PREFIX}/opt/*/libexec/gnubin(N); do
+# GNU tools under their plain names (sed, grep, tar, ...)
+# skip libtool: its gnubin shadows Apple's libtool, which Xcode builds need
+for d in $HOMEBREW_PREFIX/opt/*/libexec/gnubin(N); do
     [[ $d == */libtool/* ]] || _dot_prepend_to_path $d
-  done
-  # I actually like that man grep gives the BSD grep man page
-  #for d in ${HOMEBREW_PREFIX}/opt/*/libexec/gnuman(N); do export MANPATH=$d:$MANPATH; done
-
-  FPATH="${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}"
-fi
+done
+unset d

@@ -1,2 +1,2 @@
-export BAT_PAGER="less -RIX"
+# bat pages with less, which picks up $LESS
 export BAT_STYLE="plain"

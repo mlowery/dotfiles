@@ -1,22 +1,4 @@
-# Create timestamped backup of given file in same directory as given file.
-function bak() {
-  (cd $(dirname $1) && cp -p -r $(basename $1) $(basename $1)~`date +%Y%m%d_%H%M%S`~)
-}
-
-function trunc() {
-  bak $1
-  truncate -s 0 $1
-}
-
-function rmline() {
-  local file="$1"
-  local num=$2
-  sed --in-place="`date +~%F_%H-%M-%S`" ${num}d "$file"
-}
-
 # Create a new directory and enter it
 function mkcd() {
     mkdir -p "$@" && cd "$@"
 }
-
-alias ax="chmod a+x"
