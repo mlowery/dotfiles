@@ -1,4 +1,5 @@
-command = direct:/opt/homebrew/bin/zsh
+# -l: login shell, so /etc/zprofile runs path_helper (adds /usr/local/bin, /etc/paths.d)
+command = direct:/opt/homebrew/bin/zsh -l
 theme = light:Monokai Pro Light Custom,dark:Monokai Pro Custom
 window-theme = system
 font-family = Ubuntu Mono

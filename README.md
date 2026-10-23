@@ -38,7 +38,7 @@ The config lives in `.config/ghostty/config.ghostty` and the custom themes it re
 
 ### Shell
 
-`command = direct:/opt/homebrew/bin/zsh` (from brew)
+`command = direct:/opt/homebrew/bin/zsh -l` (from brew, as a login shell so macOS's `path_helper` adds `/usr/local/bin` and `/etc/paths.d`)
 
 ### Colors
 
