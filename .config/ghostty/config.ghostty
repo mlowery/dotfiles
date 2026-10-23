@@ -7,6 +7,7 @@ adjust-cell-width = 1
 cursor-style = block
 # ssh-env: use xterm-256color on remote hosts that lack xterm-ghostty terminfo
 shell-integration-features = no-cursor,ssh-env
+copy-on-select = clipboard
 
 # Undo / Redo
 keybind = super+z=text:\x1f
