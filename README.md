@@ -9,7 +9,7 @@ These are notes specific to me but perhaps are of use for anyone.
 1. Install git (from Xcode). (It will be upgraded later via `install.sh`.)
 1. Install brew.
 1. Clone dotfiles.
-1. Install Ghostty. (Config: `Library/Application Support/com.mitchellh.ghostty/config.ghostty`, themes: `.config/ghostty/themes`.)
+1. Install Ghostty. (Config and themes: `.config/ghostty`.)
 1. Install the Ubuntu Mono font from Google.
 1. Remap caps lock key to control.
 1. Set up `pre-commit` hook to check for no-no strings before commits:
@@ -34,7 +34,7 @@ search s2
 
 ## Ghostty
 
-The config lives in `Library/Application Support/com.mitchellh.ghostty/config.ghostty` and the custom themes it references live in `.config/ghostty/themes`. Both are installed by `install.sh` along with everything else. Ghostty reloads its config with ⇧⌘,.
+The config lives in `.config/ghostty/config.ghostty` and the custom themes it references live in `.config/ghostty/themes`. Both are installed by `install.sh` along with everything else. Ghostty reloads its config with ⇧⌘,.
 
 ### Shell
 
