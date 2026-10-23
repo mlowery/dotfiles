@@ -1,7 +1,15 @@
 if _dot_is_osx; then
     if _dot_on_path brew; then
-        # install anything missing from the Brewfile; upgrade with `brew upgrade`
+        # Make sure we’re using the latest Homebrew.
+        brew update
+
+        # Install anything missing from the Brewfile, then upgrade all
+        # installed formulae (not just those in the Brewfile).
         brew bundle install --no-upgrade --file=Brewfile
+        brew upgrade
+
+        # Remove outdated versions from the cellar.
+        brew cleanup
     else
         echo "WARNING: HomeBrew not installed"
     fi
