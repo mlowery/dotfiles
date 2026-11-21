@@ -23,6 +23,22 @@ Run these from the repo root. `.stowrc` supplies `--target=~ --no-folding`, and 
 
 Stow refuses to overwrite a regular file or a symlink it didn't create; the error names the file. Move it aside (or `--adopt` it) and rerun. Some apps save by writing a new file and renaming it over the old one, which replaces the link with a plain file; `git status` then stops showing that app's changes, and `stow --adopt .` relinks it.
 
+## Local, untracked shell config
+
+`~/.zshrc` sources every executable file in `~/.shell.d` in name order. Because of `--no-folding`, `~/.shell.d` is a real directory, so a plain file created there (not in the repo) is sourced but never tracked. Use it for machine-specific exports, secrets and aliases.
+
+```zsh
+cat > ~/.shell.d/70-local <<'EOF'
+export WORK_DIR=~/work
+EOF
+chmod +x ~/.shell.d/70-local
+```
+
+- The file must be executable; the loop silently skips anything else.
+- The number prefix sets the load order: `70` runs after Homebrew, `PATH` and tool setup but before the prompt (`80`) and plugins (`90`); `99` runs last and can override anything; `01` runs first, for variables later files read.
+- Don't start the name with a dot; the `*` glob skips dotfiles.
+- `ls -l ~/.shell.d` shows local files as regular files and tracked ones as links into the repo.
+
 ## Pre-push checks
 
 `.githooks/pre-push` blocks `git push` when the commits being pushed:
